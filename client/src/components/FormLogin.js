@@ -16,41 +16,37 @@ export const FormLogin = () => {
         e.preventDefault();
         const cleanDni = checkNotAllChar(e.target.dniUser.value);
         const cleanPass = checkNotAllChar(e.target.passwordUser.value);
- 
         if(cleanDni && cleanPass){
-            const {valDni, valDniMsn } = checkDni(e.target.dniUser.value);
-             if (valDni){
-                let loginDates = {
-                    dniUser: e.target.dniUser.value,
-                    passwordUser: e.target.passwordUser.value
+            const {validation, message } = checkDni(e.target.dniUser.value);
+            if (validation){
+
+                let loginData = {
+                    num_doc: e.target.dniUser.value,
+                    contraseña: e.target.passwordUser.value
                 }
 
                 let Metadatos = {
                     method: 'POST',
-                    body: JSON.stringify(loginDates),
+                    body: JSON.stringify(loginData),
                     mode: "cors",
                     headers: {
                         "Access-Control-Allow-Origin": "*",
                         "Content-type": "application/json",
                     },
                 };
-
-                fetch("/login", Metadatos)
+                await fetch("/login-user", Metadatos)
                     .then((response) => response.json())
                     .then((response) => {
-                        console.log(response)
-
+                        console.log(response);
+                        console.log("despues del fetch");
                 })
 
              }else {
-                setMsn(valDniMsn);
+                setMsn(message);
              }
         
         }
     }
-
-
-
 
     return (
 
@@ -80,7 +76,7 @@ export const FormLogin = () => {
                 </div>
 
                 <div className='divSubmitForm'>
-                    <input type="submit" value="Acceder" className='butForm' />
+                    <input type="submit" value="Acceder" className='butForm'/>
                 </div>
 
                 <div className='textForm'>

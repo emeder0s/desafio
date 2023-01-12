@@ -61,14 +61,14 @@ function checkPass(password) {
     }
 
     if (longPassword(password) && containsNums(password) && upperLetters(password) && lowerLetters(password) && specialCharacters(password)){
-        var msn = "";
+        var message = "";
         var validation = true; 
     }else {
-        var msn = "La contraseña no cumple con los requisitos de seguridad";
+        var message = "La contraseña no cumple con los requisitos de seguridad";
         var validation = false;
     }
  
-    return {validation,msn};
+    return {validation,message};
 }
         
 
