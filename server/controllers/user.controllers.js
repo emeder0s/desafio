@@ -3,10 +3,6 @@ const userModel = require("../models/user.model");
 const bcyptjs = require('bcryptjs');
 const jwt = require("jsonwebtoken");
 
-
-
-
-
 const user = {
   /**
    * Inserta un user
@@ -52,6 +48,15 @@ const user = {
       await connection.close(con);
     }
   },
+  
+  /**
+   * 
+   * @param {*} req la petición
+   * @param {*} res la respuesta a la petición
+   */
+  login: (req, res) => {
+    res.json("holis");
+  }
 
   //   /**
   //  * Actualiza la contraseña de un spacer 

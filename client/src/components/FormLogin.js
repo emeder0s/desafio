@@ -1,45 +1,48 @@
-import React from 'react'
-import logo from '../img/logo.png'
-import logoApple from '../img/logoApple.png'
-import logoFacebook from '../img/logoFacebook.png'
-import logoGoogle from '../img/logoGoogle.png'
-import statusBar from '../img/statusBar.png'
-import rectangle from '../img/rectangle.png'
-
-
-
+import {React, useState} from 'react';
+import checkDni from '../helper/ValidationDni';
+import logo from '../img/logo.png';
+import logoApple from '../img/logoApple.png';
+import logoFacebook from '../img/logoFacebook.png';
+import logoGoogle from '../img/logoGoogle.png';
+import statusBar from '../img/statusBar.png';
+import rectangle from '../img/rectangle.png';
 
 export const FormLogin = () => {
+    const [msn,setMns] = useState();
 
-    const loginUser = async e => {
-
-        e.preventDefault();
-
-        let loginDates = {
-            dniUser: e.target.dniUser.value,
-            passwordUser: e.target.passwordUser.value
-        }
-
-
-        let Metadatos = {
-            method: 'POST',
-            body: JSON.stringify(loginDates),
-            mode: "cors",
-            headers: {
-                "Access-Control-Allow-Origin": "*",
-                "Content-type": "application/json",
-            },
-        };
-
-
-        fetch("http://localhost:5000/login", Metadatos)
-            .then((response) => response.json())
-            .then((response) => {
-                console.log(response)
-
-            })
+    const checkValidation = (dni,password) => {
+        
     }
 
+    const loginUser = async e => {
+        e.preventDefault();
+        console.log(checkDni(e.target.dniUser.value));
+        // if(checkValidation(e.target.dniUser.value,e.target.passwordUser.value)){
+
+        // }
+    }
+
+        // let loginDates = {
+        //     dniUser: e.target.dniUser.value,
+        //     passwordUser: e.target.passwordUser.value
+        // }
+
+        // let Metadatos = {
+        //     method: 'POST',
+        //     body: JSON.stringify(loginDates),
+        //     mode: "cors",
+        //     headers: {
+        //         "Access-Control-Allow-Origin": "*",
+        //         "Content-type": "application/json",
+        //     },
+        // };
+
+        // fetch("/login", Metadatos)
+        //     .then((response) => response.json())
+        //     .then((response) => {
+        //         console.log(response)
+
+        //     })
 
 
     return (
