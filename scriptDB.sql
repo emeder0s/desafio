@@ -123,6 +123,9 @@ CREATE TABLE IF NOT EXISTS modalidades(
         PRIMARY KEY(id)
 );
 
+INSERT INTO modalidades VALUES (null, 'Presencial');
+INSERT INTO modalidades VALUES (null, 'No Presencial');
+
 CREATE TABLE IF NOT EXISTS tematicas(
         id INT AUTO_INCREMENT,
         nombre VARCHAR(16),
@@ -130,27 +133,79 @@ CREATE TABLE IF NOT EXISTS tematicas(
         PRIMARY KEY(id)
 ); 
 
+INSERT INTO tematicas VALUES (null, 'Educación');
+INSERT INTO tematicas VALUES (null, 'Empleo');
+INSERT INTO tematicas VALUES (null, 'Inclusión Social');
+INSERT INTO tematicas VALUES (null, 'Medio Ambiente');
+INSERT INTO tematicas VALUES (null, 'Salud');
+INSERT INTO tematicas VALUES (null, 'Socorros');
+
 CREATE TABLE IF NOT EXISTS colectivos(
         id INT AUTO_INCREMENT,
         nombre VARCHAR(48),
         
         PRIMARY KEY(id)
-);   
+);
+
+INSERT INTO colectivos VALUES (null, 'Desempleadas o Precariedad Laboral');
+INSERT INTO colectivos VALUES (null, 'Infancia');
+INSERT INTO colectivos VALUES (null, 'Jóvenes');
+INSERT INTO colectivos VALUES (null, 'Mujeres en dificultad social');
+INSERT INTO colectivos VALUES (null, 'Personas con problemas de salud');
+INSERT INTO colectivos VALUES (null, 'Personas en situación de extrema vulnerabilidad');
+INSERT INTO colectivos VALUES (null, 'Personas inmigrantes');
+INSERT INTO colectivos VALUES (null, 'Personas mayores y cuidadores');
+INSERT INTO colectivos VALUES (null, 'Personas reclusas y exreclusas');
+INSERT INTO colectivos VALUES (null, 'Población en general');
+INSERT INTO colectivos VALUES (null, 'Solicitantes de asilo y refugio');
 
 
 CREATE TABLE IF NOT EXISTS tipos_actividades(
         id INT AUTO_INCREMENT,
-        nombre VARCHAR(56),
+        nombre VARCHAR(60),
         
         PRIMARY KEY(id)
 ); 
+
+INSERT INTO tipos_actividades VALUES (null, 'Colaborar en el traslado de personas que no pueden solas');
+INSERT INTO tipos_actividades VALUES (null, 'Apoyar, asistir y mediar para mejorar las dificultades');
+INSERT INTO tipos_actividades VALUES (null, 'Participar en albergues, pisos y alojamientos de Cruz Roja');
+INSERT INTO tipos_actividades VALUES (null, 'Ayudar a conseguir y organizar los recursos donados');
+INSERT INTO tipos_actividades VALUES (null, 'Repartir ayudas y productos de primera necesidad');
+INSERT INTO tipos_actividades VALUES (null, 'Sencibilizar a la población');
+INSERT INTO tipos_actividades VALUES (null, 'Comunicar y difundir');
+INSERT INTO tipos_actividades VALUES (null, 'Hacer compañía cuando te necesiten');
+INSERT INTO tipos_actividades VALUES (null, 'Proteger y rehabilitar el medio');
+INSERT INTO tipos_actividades VALUES (null, 'Coopear en red y generar alianzas');
+INSERT INTO tipos_actividades VALUES (null, 'Escuchar y orientar a las personas');
+INSERT INTO tipos_actividades VALUES (null, 'Enseñar y capacitar');
 
 CREATE TABLE IF NOT EXISTS comunidades_autonomas(
         id INT AUTO_INCREMENT,
         nombre VARCHAR(26),
         
         PRIMARY KEY(id)
-);     
+);    
+
+INSERT INTO comunidades_autonomas VALUES (null, 'Andalucía');
+INSERT INTO comunidades_autonomas VALUES (null, 'Aragón');
+INSERT INTO comunidades_autonomas VALUES (null, 'Principado de Asturias');
+INSERT INTO comunidades_autonomas VALUES (null, 'Islas Baleares');
+INSERT INTO comunidades_autonomas VALUES (null, 'Canarias');
+INSERT INTO comunidades_autonomas VALUES (null, 'Cantabria');
+INSERT INTO comunidades_autonomas VALUES (null, 'Castilla y León');
+INSERT INTO comunidades_autonomas VALUES (null, 'Castilla-La Mancha');
+INSERT INTO comunidades_autonomas VALUES (null, 'Cataluña');
+INSERT INTO comunidades_autonomas VALUES (null, 'Comunidad Valenciana');
+INSERT INTO comunidades_autonomas VALUES (null, 'Extremadura');
+INSERT INTO comunidades_autonomas VALUES (null, 'Galicia');
+INSERT INTO comunidades_autonomas VALUES (null, 'Comunidad de Madrid');
+INSERT INTO comunidades_autonomas VALUES (null, 'Región de Murcia');
+INSERT INTO comunidades_autonomas VALUES (null, 'Comunidad Foral de Navarra');
+INSERT INTO comunidades_autonomas VALUES (null, 'País Vasco');
+INSERT INTO comunidades_autonomas VALUES (null, 'La Rioja');
+INSERT INTO comunidades_autonomas VALUES (null, 'Ciudad Autónoma de Ceuta');
+INSERT INTO comunidades_autonomas VALUES (null, 'Ciudad Autónoma de Melilla'); 
 
 CREATE TABLE IF NOT EXISTS actividades(
         id INT AUTO_INCREMENT,
@@ -184,4 +239,14 @@ CREATE TABLE IF NOT EXISTS valoraciones(
         FOREIGN KEY (fk_id_user) REFERENCES users(id),
         FOREIGN KEY (fk_id_actividad) REFERENCES actividades(id)
 
+);
+
+CREATE TABLE IF NOT EXISTS user_actividad(
+        id INT AUTO_INCREMENT,
+        fk_id_user INT,
+        fk_id_actividad INT,
+        
+        PRIMARY KEY(id),
+        FOREIGN KEY (fk_id_user) REFERENCES users(id),
+        FOREIGN KEY (fk_id_actividad) REFERENCES actividades(id)
 ); 
