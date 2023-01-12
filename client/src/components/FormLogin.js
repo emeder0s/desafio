@@ -1,7 +1,7 @@
 import {React, useState} from 'react';
 import checkDni from '../helper/ValidationDni';
 import checkPass from '../helper/ValidationPass';
-// import checkSpecialCar from '../helper/ValidationSpecialCar';
+import checkNotAllChar from '../helper/ValidationNotAllChar';
 import logo from '../img/logo.png';
 import logoApple from '../img/logoApple.png';
 import logoFacebook from '../img/logoFacebook.png';
@@ -10,36 +10,43 @@ import statusBar from '../img/statusBar.png';
 import rectangle from '../img/rectangle.png';
 
 export const FormLogin = () => {
-    const [msn,setMns] = useState();
+    const [msn,setMsn] = useState();
 
     const loginUser = async e => {
         e.preventDefault();
-        const {valDni, valDniMsn } = checkDni(e.target.dniUser.value);
-        const {valPass, valPassMsn } = checkPass(e.target.passwordUser.value);
-        console.log(valPass," ", valPassMsn);
-        // if(valDni && valPass){
-        //     let loginDates = {
-        //         dniUser: e.target.dniUser.value,
-        //         passwordUser: e.target.passwordUser.value
-        //     }
+        const cleanDni = checkNotAllChar(e.target.dniUser.value);
+        const cleanPass = checkNotAllChar(e.target.passwordUser.value);
+ 
+        if(cleanDni && cleanPass){
+            const {valDni, valDniMsn } = checkDni(e.target.dniUser.value);
+             if (valDni){
+                let loginDates = {
+                    dniUser: e.target.dniUser.value,
+                    passwordUser: e.target.passwordUser.value
+                }
 
-        //     let Metadatos = {
-        //         method: 'POST',
-        //         body: JSON.stringify(loginDates),
-        //         mode: "cors",
-        //         headers: {
-        //             "Access-Control-Allow-Origin": "*",
-        //             "Content-type": "application/json",
-        //         },
-        //     };
+                let Metadatos = {
+                    method: 'POST',
+                    body: JSON.stringify(loginDates),
+                    mode: "cors",
+                    headers: {
+                        "Access-Control-Allow-Origin": "*",
+                        "Content-type": "application/json",
+                    },
+                };
 
-        //     fetch("/login", Metadatos)
-        //         .then((response) => response.json())
-        //         .then((response) => {
-        //             console.log(response)
+                fetch("/login", Metadatos)
+                    .then((response) => response.json())
+                    .then((response) => {
+                        console.log(response)
 
-        //     })
-        // }
+                })
+
+             }else {
+                setMsn(valDniMsn);
+             }
+        
+        }
     }
 
 

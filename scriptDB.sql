@@ -239,4 +239,14 @@ CREATE TABLE IF NOT EXISTS valoraciones(
         FOREIGN KEY (fk_id_user) REFERENCES users(id),
         FOREIGN KEY (fk_id_actividad) REFERENCES actividades(id)
 
+);
+
+CREATE TABLE IF NOT EXISTS user_actividad(
+        id INT AUTO_INCREMENT,
+        fk_id_user INT,
+        fk_id_actividad INT,
+        
+        PRIMARY KEY(id),
+        FOREIGN KEY (fk_id_user) REFERENCES users(id),
+        FOREIGN KEY (fk_id_actividad) REFERENCES actividades(id)
 ); 
