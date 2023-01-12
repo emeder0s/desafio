@@ -91,6 +91,20 @@ function caracteresEspeciales(password){
 
 }
 
+const isNotAllowedcharacters = (letter) =>{
+    return (letter != 32) || (letter != 39) || (letter != 34) || (letter != 60) || (letter != 62) || (letter != 45) || (letter != 61) || (letter != 37);
+}
+
+ const notAllowedcharacters = (password) => {
+    var i = 0;
+    var validation = false;
+    while(i<password.length && !validation){
+        validation = isNotAllowedcharacters(password.charCodeAt(i));
+        i++;
+    }
+
+    return validation;
+}
 
 validationPassword = (password) => {
     var msn = "";
@@ -106,19 +120,4 @@ validationPassword = (password) => {
     }
 
     return {validation,msn}
-}
-
-const isNotAllowedcharacters = (letter) =>{
-    return (letter != 32) || (letter != 39) || (letter != 34) || (letter != 60) || (letter != 62) || (letter != 45) || (letter != 61) || (letter != 37)
-}
-
- const notAllowedcharacters = (password) => {
-    var i = 0;
-    var validation = false;
-    while(i<password.length && !validation){
-        validation = isNotAllowedcharacters(password.charCodeAt(i));
-        i++;
-    }
-
-    return validation;
 }
