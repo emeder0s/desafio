@@ -39,6 +39,7 @@ build/Release
 
 # Dependency directories
 node_modules/
+package-lock.json
 jspm_packages/
 
 .env
@@ -105,4 +106,5 @@ dist
 # TernJS port file
 .tern-port
 
+server/package-lock.json
 
