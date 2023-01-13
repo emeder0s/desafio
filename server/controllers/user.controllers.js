@@ -1,7 +1,7 @@
 require('dotenv').config();
 const connection = require("../databases/sequelize");
 const userModel = require("../models/user.model");
-const tipoDocModel = require("../models/tipo_doc.model");
+const typeDocModel = require("../models/type_doc.model");
 const bcyptjs = require('bcryptjs');
 const jwt = require("jsonwebtoken");
 
@@ -17,10 +17,10 @@ const user = {
       const pass_hash = await bcyptjs.hash(contraseña, 8);
       // ------ PASOS PARA LA INSERCIÓN EN LA DB
       var con = await connection.open(); //abrir la db
-      const tipoDocM = await tipoDocModel.create(con);
-      const tipoDoc = await tipoDocM.findOne({where :{tipo_documento_ext:tipo_doc}});
+      const typeDocM = await typeDocModel.create(con);
+      const typeDoc = await typeDocM.findOne({where :{tipo_documento_ext:tipo_doc}});
       const userM = await userModel.create(con); //creación de modelo
-      const user = await userM.create({ user_rol,nombre, apellido_1, apellido_2, fecha_nac, tipo_doc:tipoDoc.dataValues.id, num_doc, contraseña:pass_hash }); // la inserción del objeto en la db
+      const user = await userM.create({ user_rol,nombre, apellido_1, apellido_2, fecha_nac, tipo_doc:typeDoc.dataValues.id, num_doc, contraseña:pass_hash }); // la inserción del objeto en la db
       //-------
       const infoJwt = jwt.sign({ id: user.dataValues.id, nombre: user.dataValues.nombre }, process.env.SECRET_KEY);
       res.json({validation:true,"jwt":infoJwt, user:{nombre: user.dataValues.nombre}});
@@ -30,6 +30,16 @@ const user = {
     }finally{
         await connection.close(con);
     }
+  },
+
+  /**
+   * Devuelve la id del usuario que tiene sesion iniciada
+   * @param {json} req la petición
+   * @returns {integer} el id del usuario
+   */
+    get_id_from_cookie: (req) => {
+      let jwtVerify = jwt.verify(req.cookies.session, process.env.SECRET_KEY);
+      return jwtVerify.id;
   },
 
   /**

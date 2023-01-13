@@ -213,6 +213,8 @@ INSERT INTO comunidades_autonomas VALUES (null, 'Ciudad Autónoma de Melilla');
 
 CREATE TABLE IF NOT EXISTS actividades(
         id INT AUTO_INCREMENT,
+        titulo VARCHAR(100),
+        descripcion VARCHAR(1000),
         categoria VARCHAR(12),
         fecha_ini DATETIME,
 		fecha_fin DATETIME,
@@ -245,10 +247,22 @@ CREATE TABLE IF NOT EXISTS valoraciones(
 
 );
 
-CREATE TABLE IF NOT EXISTS user_actividad(
+CREATE TABLE IF NOT EXISTS inscripciones(
         id INT AUTO_INCREMENT,
         fk_id_user INT,
         fk_id_actividad INT,
+        
+        PRIMARY KEY(id),
+        FOREIGN KEY (fk_id_user) REFERENCES users(id),
+        FOREIGN KEY (fk_id_actividad) REFERENCES actividades(id)
+); 
+
+
+CREATE TABLE IF NOT EXISTS solicitudes_inscripciones(
+        id INT AUTO_INCREMENT,
+        fk_id_user INT,
+        fk_id_actividad INT,
+        estado VARCHAR(10),
         
         PRIMARY KEY(id),
         FOREIGN KEY (fk_id_user) REFERENCES users(id),
