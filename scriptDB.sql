@@ -213,6 +213,8 @@ INSERT INTO comunidades_autonomas VALUES (null, 'Ciudad Autónoma de Melilla');
 
 CREATE TABLE IF NOT EXISTS actividades(
         id INT AUTO_INCREMENT,
+        titulo VARCHAR(100),
+        descripcion VARCHAR(1000),
         categoria VARCHAR(12),
         fecha_ini DATETIME,
 		fecha_fin DATETIME,

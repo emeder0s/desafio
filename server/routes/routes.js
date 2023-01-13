@@ -2,6 +2,7 @@ const router = require("express").Router();
 const user = require("../controllers/user.controllers");
 const request = require("../controllers/registration_request.controllers");
 const registration = require("../controllers/registration.controllers");
+const activity = require("../controllers/activity.controllers");
 
 //USER
 router.post("/register", user.new); //Añade un user
@@ -20,6 +21,10 @@ router.post("/reject-request",request.rejectRequest);
 
 //REQUEST 
 router.post("/new-registration",registration.new);
+
+//ACTIVITIES
+router.post("/new-event",activity.newEvent);
+router.get("/get-event/:id",activity.getEvent);
 
 
 
