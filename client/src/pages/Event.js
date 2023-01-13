@@ -5,17 +5,17 @@ function Event() {
     const { id } = useParams();
     const [event,setEvent] = useState();
 
-    // const getEvent = ()=> {
-    //     fetch(`/event/${id}`)
-    //     .then((res) => res.json(res))
-    //     .then(res=>{
-    //         setEvent(res);
-    //     });
-    // }
+    const getEvent = ()=> {
+        fetch(`/get-event/${id}`)
+        .then((res) => res.json(res))
+        .then(res=>{
+            setEvent(res);
+        });
+    }
 
-    // useEffect(()=>{
-    //     getSpace();
-    // },[])
+    useEffect(()=>{
+        getEvent();
+    },[])
 
     const enrollTo = async () => {
         let data = {
@@ -36,7 +36,13 @@ function Event() {
 
   return (
     <div className="page-content">
-        <button onClick={()=>{enrollTo()}}>Asistir</button>
+        {event ? 
+            <div>
+                {event.titulo}
+                {event.descripcion}
+                <button onClick={()=>{enrollTo()}}>Asistir</button>
+            </div>
+        :""}  
     </div>   
   );
 }
