@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState } from 'react'
 import logo from '../img/logo.png'
 import logoApple from '../img/logoApple.png'
 import logoFacebook from '../img/logoFacebook.png'
@@ -10,6 +10,8 @@ import rectangle from '../img/rectangle.png'
 
 
 export const FormLogin = () => {
+
+
 
     const loginUser = async e => {
 
@@ -36,6 +38,7 @@ export const FormLogin = () => {
             .then((response) => response.json())
             .then((response) => {
                 console.log(response)
+               
 
             })
     }
@@ -62,7 +65,7 @@ export const FormLogin = () => {
                 </div>
 
                 <div className='documentNumber'>
-                    <input type="text" required placeholder='Número de documento' name='dniUser' />
+                    <input type="text" required placeholder='Número de documento' name='dniUser'  />
                 </div>
 
                 <div className='userPass'>
@@ -89,8 +92,8 @@ export const FormLogin = () => {
 
                 <div className='iconMedia'>
                     <img src={logoGoogle} className="imgIcon" alt='logo google' />
-                    <img src={logoApple} className="imgIcon" alt='logo apple'/>
-                    <img src={logoFacebook} className="imgIcon" alt='logo facebook'/>
+                    <img src={logoApple} className="imgIcon" alt='logo apple' />
+                    <img src={logoFacebook} className="imgIcon" alt='logo facebook' />
                 </div>
 
                 <p></p>
