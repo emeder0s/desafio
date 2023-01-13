@@ -1,8 +1,8 @@
 const { Sequelize, DataTypes } = require('sequelize');
 
-tipoDocModel = {
+typeDocModel = {
     create: async (sequelize) => {
-        const tiposDocs = sequelize.define("tipo_documentos",{
+        const typesDocs = sequelize.define("tipo_documentos",{
             id: {
                 type: DataTypes.INTEGER,
                 autoIncrement: true,
@@ -18,8 +18,8 @@ tipoDocModel = {
             timestamps: false
         })
 
-        return tiposDocs
+        return typesDocs
     }
 }
 
-module.exports = tipoDocModel;
+module.exports = typeDocModel;
