@@ -256,7 +256,7 @@ CREATE TABLE IF NOT EXISTS inscripciones(
 ); 
 
 
-CREATE TABLE IF NOT EXISTS solicitudes_inscripcion(
+CREATE TABLE IF NOT EXISTS solicitudes_inscripciones(
         id INT AUTO_INCREMENT,
         fk_id_user INT,
         fk_id_actividad INT,
