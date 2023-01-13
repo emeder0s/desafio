@@ -10,4 +10,7 @@ app.use(cookieParser());
 app.use(express.json());
 app.use(express.urlencoded({extended: true}));
 
+// Uso de rutas
+app.use("/", router);
+
 app.listen(port, () => console.log(`Server ON: ${port}`));
