@@ -7,7 +7,7 @@ const connection = {
             host: process.env.HOST,
             timezone: '+01:00',
             dialect: 'mysql',
-            port: DB_PORT
+            port: process.env.DB_PORT
         })
        
         await sequelize.authenticate()

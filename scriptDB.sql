@@ -9,11 +9,15 @@ CREATE TABLE IF NOT EXISTS tipo_documentos(
         
         PRIMARY KEY(id)
 );
+
+INSERT INTO tipo_documentos VALUES (null, 'dni','dni');
+INSERT INTO tipo_documentos VALUES (null, 'pasaporte','pasaporte');
+INSERT INTO tipo_documentos VALUES (null, 'nie','nie');
     
 CREATE TABLE IF NOT EXISTS users(
         id INT AUTO_INCREMENT,
         user_rol VARCHAR(10),
-        contraseña VARCHAR (18),
+        contraseña VARCHAR (65),
         fecha_alta DATETIME,
         nombre VARCHAR(20), 
         apellido_1 VARCHAR(20), 

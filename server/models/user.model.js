@@ -14,23 +14,20 @@ userModel = {
             contraseña: {
                 type: DataTypes.STRING,
             },
-            fecha_alt: {
+            nombre: {
                 type: DataTypes.STRING,
             },
-            nombre: {
-                type: DataTypes.INTEGER,
-            },
             apellido_1: {
-                type: DataTypes.INTEGER,
+                type: DataTypes.STRING,
             },
             apellido_2: {
-                type: DataTypes.INTEGER,
+                type: DataTypes.STRING,
             },
             fecha_nac: {
-                type: DataTypes.INTEGER,
+                type: DataTypes.DATE,
             },
             tipo_doc: {
-                type: DataTypes.INT,
+                type: DataTypes.INTEGER,
             },
             num_doc: {
                 type: DataTypes.STRING,
