@@ -26,6 +26,7 @@ CREATE TABLE IF NOT EXISTS users(
         tipo_doc INT ,
         num_doc CHAR(10),
         sexo VARCHAR(20),
+        prefijo VARCHAR(5),
         telefono INT,
         idioma_com VARCHAR(20),
         email VARCHAR(50),
@@ -76,48 +77,13 @@ CREATE TABLE IF NOT EXISTS users(
         int_act_orientar INT,
 		int_act_enseñar INT,
         idioma VARCHAR(15),
+        carnet VARCHAR (8),
         disponibilidad VARCHAR(30),
         horario VARCHAR(30),
         otras_habilidades INT,
         
         PRIMARY KEY(id),
         FOREIGN KEY (tipo_doc) REFERENCES tipo_documentos(id)
-);
-    
-CREATE TABLE IF NOT EXISTS idiomas(
-        id INT AUTO_INCREMENT,
-		idioma VARCHAR(30),
-        
-        PRIMARY KEY(id)
-);
-    
-CREATE TABLE IF NOT EXISTS user_idioma(
-        id INT AUTO_INCREMENT,
-		fk_id_usuario INT,
-        fk_id_idioma INT,
-        nivel VARCHAR(10),
-        
-        PRIMARY KEY(id),
-        FOREIGN KEY (fk_id_usuario) REFERENCES users(id),
-        FOREIGN KEY (fk_id_idioma) REFERENCES idiomas(id)
-);
-
-CREATE TABLE IF NOT EXISTS condu(
-        id INT AUTO_INCREMENT,
-        carnet_condu VARCHAR(8),
-        
-        PRIMARY KEY(id)
-);
-
-CREATE TABLE IF NOT EXISTS user_condu(
-        id INT AUTO_INCREMENT,
-		fk_id_usuario INT,
-        fk_id_condu INT,
-        nivel VARCHAR(10),
-        
-        PRIMARY KEY(id),
-        FOREIGN KEY (fk_id_usuario) REFERENCES users(id),
-        FOREIGN KEY (fk_id_condu) REFERENCES condu(id)
 );
 
 CREATE TABLE IF NOT EXISTS modalidades(
