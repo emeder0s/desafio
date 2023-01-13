@@ -1,20 +1,3 @@
-<<<<<<< HEAD
-import React, { useState } from 'react'
-import logo from '../img/logo.png'
-import logoApple from '../img/logoApple.png'
-import logoFacebook from '../img/logoFacebook.png'
-import logoGoogle from '../img/logoGoogle.png'
-import statusBar from '../img/statusBar.png'
-import rectangle from '../img/rectangle.png'
-
-
-
-
-export const FormLogin = () => {
-
-
-
-=======
 import {React, useState} from 'react';
 import Cookies from 'universal-cookie';
 import checkDni from '../helper/ValidationDni';
@@ -30,13 +13,12 @@ export const FormLogin = () => {
     const cookies = new Cookies();
     const [msn,setMsn] = useState();
     
->>>>>>> 8981989ce5a6db5bab2e2edc5ca926b2ada1f5f7
     const loginUser = async e => {
         e.preventDefault();
         console.log(e.target.documents.value);
         const cleanDni = checkNotAllChar(e.target.docUser.value);
         const cleanPass = checkNotAllChar(e.target.passwordUser.value);
-        if(cleanDni && cleanPass){
+        if (cleanDni && cleanPass){
             switch (e.target.documents.value) {
                 case "dni":
                     var {validation, message } = checkDni(e.target.docUser.value);
@@ -79,29 +61,6 @@ export const FormLogin = () => {
                 setMsn(message);
              }
         }
-<<<<<<< HEAD
-
-
-        let Metadatos = {
-            method: 'POST',
-            body: JSON.stringify(loginDates),
-            mode: "cors",
-            headers: {
-                "Access-Control-Allow-Origin": "*",
-                "Content-type": "application/json",
-            },
-        };
-
-
-        fetch("http://localhost:5000/login", Metadatos)
-            .then((response) => response.json())
-            .then((response) => {
-                console.log(response)
-               
-
-            })
-=======
->>>>>>> 8981989ce5a6db5bab2e2edc5ca926b2ada1f5f7
     }
 
     return (
@@ -122,11 +81,7 @@ export const FormLogin = () => {
                 </div>
 
                 <div className='documentNumber'>
-<<<<<<< HEAD
-                    <input type="text" required placeholder='Número de documento' name='dniUser'  />
-=======
                     <input type="text" required placeholder='Número de documento' name='docUser' />
->>>>>>> 8981989ce5a6db5bab2e2edc5ca926b2ada1f5f7
                 </div>
 
                 <div className='userPass'>
@@ -162,7 +117,6 @@ export const FormLogin = () => {
             {/* <div>
                 <img src={rectangle} className='rectangleBar' alt="" />
             </div> */}
-
         </div>
     )
 }
