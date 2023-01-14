@@ -17,6 +17,7 @@ INSERT INTO tipo_documentos VALUES (null, 'nie','nie');
 CREATE TABLE IF NOT EXISTS users(
         id INT AUTO_INCREMENT,
         user_rol VARCHAR(10),
+        descripcion VARCHAR(500),
         contraseña VARCHAR (65),
         fecha_alta DATETIME,
         nombre VARCHAR(20), 
@@ -181,10 +182,11 @@ CREATE TABLE IF NOT EXISTS actividades(
         id INT AUTO_INCREMENT,
         titulo VARCHAR(100),
         descripcion VARCHAR(1000),
+        localizacion VARCHAR(64),
         categoria VARCHAR(12),
         plazas INT,
         inscripciones INT,
-        coordinator VARCHAR (1),
+        coordinador INT,
         fecha_ini DATETIME,
 		fecha_fin DATETIME,
         fk_id_modalidad INT,
@@ -197,6 +199,7 @@ CREATE TABLE IF NOT EXISTS actividades(
         nombre_actividades VARCHAR(80),
         
         PRIMARY KEY(id),
+        FOREIGN KEY (coordinador) REFERENCES user(id),
         FOREIGN KEY (fk_id_modalidad) REFERENCES modalidades(id),
         FOREIGN KEY (fk_id_tematica) REFERENCES tematicas(id),
         FOREIGN KEY (fk_id_colectivo) REFERENCES colectivos(id),
@@ -217,6 +220,16 @@ CREATE TABLE IF NOT EXISTS valoraciones(
 );
 
 CREATE TABLE IF NOT EXISTS inscripciones(
+        id INT AUTO_INCREMENT,
+        fk_id_user INT,
+        fk_id_actividad INT,
+        
+        PRIMARY KEY(id),
+        FOREIGN KEY (fk_id_user) REFERENCES users(id),
+        FOREIGN KEY (fk_id_actividad) REFERENCES actividades(id)
+);
+
+CREATE TABLE IF NOT EXISTS interesados(
         id INT AUTO_INCREMENT,
         fk_id_user INT,
         fk_id_actividad INT,
