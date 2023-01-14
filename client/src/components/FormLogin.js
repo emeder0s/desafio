@@ -8,6 +8,7 @@ import logoFacebook from '../img/logoFacebook.png';
 import logoGoogle from '../img/logoGoogle.png';
 import statusBar from '../img/statusBar.png';
 import rectangle from '../img/rectangle.png';
+import { NavLink } from "react-router-dom";
 
 export const FormLogin = () => {
     const cookies = new Cookies();
@@ -17,7 +18,9 @@ export const FormLogin = () => {
         e.preventDefault();
         console.log(e.target.documents.value);
         const cleanDni = checkNotAllChar(e.target.docUser.value);
+        console.log(cleanDni)
         const cleanPass = checkNotAllChar(e.target.passwordUser.value);
+        console.log(cleanPass)
         if (cleanDni && cleanPass){
             switch (e.target.documents.value) {
                 case "dni":
@@ -53,6 +56,8 @@ export const FormLogin = () => {
                     .then((response) => {
                         if (response.validation){
                             cookies.set('session', response.jwt, { path: '/' });
+                            <NavLink to="/loading"></NavLink>
+
                         }else {
                             setMsn(response.message);
                         }
