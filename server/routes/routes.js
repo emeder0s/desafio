@@ -13,7 +13,6 @@ router.post("/login-user", user.login); //Login
 // router.get("/user/:id",user.show); //Elimina un user
 // router.delete("/delete-user/:id",user.delete );//Borra un user
 
-
 //REGISTRATION REQUEST
 router.post("/new-request",request.new);
 router.post("/accept-request",request.acceptRequest);
@@ -25,7 +24,6 @@ router.post("/new-registration",registration.new);
 //ACTIVITIES
 router.post("/new-event",activity.newEvent);
 router.get("/get-event/:id",activity.getEvent);
-
-
+router.get("/get-coordinator-events",activity.getEventsByCoordinator);
 
 module.exports = router;

@@ -199,7 +199,7 @@ CREATE TABLE IF NOT EXISTS actividades(
         nombre_actividades VARCHAR(80),
         
         PRIMARY KEY(id),
-        FOREIGN KEY (coordinador) REFERENCES user(id),
+        FOREIGN KEY (coordinador) REFERENCES users(id),
         FOREIGN KEY (fk_id_modalidad) REFERENCES modalidades(id),
         FOREIGN KEY (fk_id_tematica) REFERENCES tematicas(id),
         FOREIGN KEY (fk_id_colectivo) REFERENCES colectivos(id),
