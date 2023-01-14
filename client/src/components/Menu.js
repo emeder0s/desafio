@@ -10,7 +10,10 @@ export const Menu = () => {
             <label for="cerrar-modal">X</label>
             <div id="modal">
                 <div className='divModal'>
-                <h2 className='pModal'>Selecciona una acción</h2>
+                    <div className='divHr'>
+                    <h2 className='pModal'>Selecciona una acción </h2>
+                    <hr/>
+                    </div>
                 <h3 className='pModal'>Copiar enlace del evento</h3>
                 <h3 className='pModal'>Compartir evento</h3>
                 <h3 className='pModal'>Contactar con el coordinador</h3>

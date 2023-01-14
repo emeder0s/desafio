@@ -4,6 +4,7 @@ import logo from '../img/logo.png'
 import logoComunidad from '../img/logoComunidad.png'
 import { Footer } from "../components/layout/Footer";
 import { Menu } from "../components/Menu";
+import imgMedicinas from '../img/imgMedicinas.png'
 
 function Event() {
     const { id } = useParams();
@@ -46,8 +47,7 @@ function Event() {
         title: 'Reparto de medicinas',
         subtitle: 'Cruz Roja Española Sierra Norte',
         descripcion: 'La intervención de Cruz Roja Española (CRE) en materia de prevención y promoción de la salud ha estado enmarcada en estos últimos años por el Plan de Salud que vio la luz en 2007',
-        image:
-            'https://cdn.pixabay.com/photo/2020/11/09/15/12/trail-5726987_960_720.jpg',
+        image:imgMedicinas
     }
 
 
@@ -61,7 +61,8 @@ function Event() {
 
             {/* {event ?  */}
             <div className="divContEvent">
-                <img src={imagesEvents.image} className="imgEventR" />
+                {/* <img src={imagesEvents.image} className="imgEventR" /> */}
+                <img src={imagesEvents.image}/>
                 <div className="divTextEvent">
                     <h2 className="h2Title">{imagesEvents.title}</h2>
                     <p>{imagesEvents.subtitle}</p>

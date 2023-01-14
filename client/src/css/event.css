@@ -1,3 +1,9 @@
+.page-content{
+    margin-left: 3px;
+   
+    padding-right: 2px;
+}
+
 .imgEventR {
     width: 412px;
     height: 236px;
@@ -29,19 +35,28 @@
 
 .butAsis {
     margin: 0 auto;
-    margin-left: 90px;
-    width: 100px;
+    margin-left: 80px;
+    margin-right: 5px;
+    width: 160px;
     height: 28px;
     border-radius: 24px;
     background-color: #0A84FF;
     color: white;
     border: none;
     text-align: center;
+    
 }
 
 .divContEvent {
     border-radius: 12px;
     background-color: #F1F1F1;
+}
+
+.divContEvent img{
+    border-top-left-radius: 14px;
+    border-top-right-radius: 14px;
+    width: 412px;
+    max-width: 100%;
 }
 
 .h2Title {
@@ -65,9 +80,11 @@
     color: #4B4B4B;
     font-size: 14px;
     font-weight: bold;
+    
 }
 
 .pDesc{
     color: #4B4B4B;
     padding-left: 10px;
+    padding-right: 5px;
 }

@@ -90,10 +90,12 @@
 
 .divModal h3{
   margin-left: 40px;
+  color: #4B4B4B;
 }
 
 .divModal h2{
   margin-left: 40px;
+  color: #4B4B4B;
 }
 
 #mostrar-modal {
@@ -157,3 +159,9 @@
   display: none;
 }
 
+
+.divHr hr{
+  
+  width: 350px;
+  
+}
