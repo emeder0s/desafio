@@ -5,7 +5,7 @@ import MyCalendar from './MyCalendar'
 import { Footer } from './layout/Footer'
 import { Menu } from './Menu'
 
-export const Carrusel = () => {
+export const Home = () => {
 
     const [events, setEvents] = useState(true)
     const [calendar, setCalendar] = useState(true)
