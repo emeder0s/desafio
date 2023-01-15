@@ -5,7 +5,7 @@ import MyCalendar from './MyCalendar'
 import { Footer } from './layout/Footer'
 import { Menu } from './Menu'
 
-export const Home = () => {
+export const HomeVolunteer = () => {
 
     const [events, setEvents] = useState(true)
     const [calendar, setCalendar] = useState(true)
@@ -123,11 +123,7 @@ export const Home = () => {
                     )) : ""}
 
                 </div> */}
-
             </div>
-
-            <Footer/>
-
         </div>
     )
 

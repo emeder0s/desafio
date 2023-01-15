@@ -17,7 +17,6 @@ export const FormLogin = () => {
     
     const loginUser = async e => {
         e.preventDefault();
-        console.log(e.target.documents.value);
         const cleanDni = checkNotAllChar(e.target.docUser.value);
         const cleanPass = checkNotAllChar(e.target.passwordUser.value);
         if (cleanDni && cleanPass){
@@ -55,7 +54,7 @@ export const FormLogin = () => {
                     .then((response) => {
                         if (response.validation){
                             cookies.set('session', response.jwt, { path: '/' });
-                            navigate("/loading");
+                            navigate(`/loading/${btoa(response.user.rol)}`);
                         }else {
                             setMsn(response.message);
                         }
