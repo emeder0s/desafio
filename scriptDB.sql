@@ -16,7 +16,7 @@ INSERT INTO tipo_documentos VALUES (null, 'nie','nie');
     
 CREATE TABLE IF NOT EXISTS users(
         id INT AUTO_INCREMENT,
-        user_rol VARCHAR(10),
+        user_rol VARCHAR(15),
         descripcion VARCHAR(500),
         contraseña VARCHAR (65),
         fecha_alta DATETIME,

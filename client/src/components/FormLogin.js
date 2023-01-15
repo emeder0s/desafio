@@ -8,9 +8,10 @@ import logoFacebook from '../img/logoFacebook.png';
 import logoGoogle from '../img/logoGoogle.png';
 import statusBar from '../img/statusBar.png';
 import rectangle from '../img/rectangle.png';
-import { NavLink } from "react-router-dom";
+import { NavLink, useNavigate } from "react-router-dom";
 
 export const FormLogin = () => {
+    const navigate = useNavigate();
     const cookies = new Cookies();
     const [msn,setMsn] = useState();
     
@@ -18,9 +19,7 @@ export const FormLogin = () => {
         e.preventDefault();
         console.log(e.target.documents.value);
         const cleanDni = checkNotAllChar(e.target.docUser.value);
-        console.log(cleanDni)
         const cleanPass = checkNotAllChar(e.target.passwordUser.value);
-        console.log(cleanPass)
         if (cleanDni && cleanPass){
             switch (e.target.documents.value) {
                 case "dni":
@@ -33,7 +32,7 @@ export const FormLogin = () => {
                     var {validation, message} = {validation:false,message:""};
                     break;
                 default:
-                    var {validation, message} = {validation:false,message:"El tipo de documento elegido no es correcto"};
+                    var {validation, message} = {validation:false,message: "El tipo de documento elegido no es correcto"};
             }
 
             if (validation){
@@ -56,8 +55,7 @@ export const FormLogin = () => {
                     .then((response) => {
                         if (response.validation){
                             cookies.set('session', response.jwt, { path: '/' });
-                            <NavLink to="/loading"></NavLink>
-
+                            navigate("/loading");
                         }else {
                             setMsn(response.message);
                         }
