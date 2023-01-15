@@ -10,11 +10,10 @@ function Home() {
     const [rol, setRol] = useState();
 
     const getRol = async () => {
-         fetch(`/get-rol`)
+         fetch('/get-role')
             .then((res) => res.json(res))
             .then(res => {
-                // setRol(res);
-                console.log(res);
+                setRol(res);
             });
     }
 
@@ -23,7 +22,7 @@ function Home() {
     }, [])
 
     return (
-        <div className="page-content">
+        <div>
             {rol=="coordinador" ? 
             <HomeCoordinator></HomeCoordinator>
             :

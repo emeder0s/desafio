@@ -207,6 +207,19 @@ CREATE TABLE IF NOT EXISTS actividades(
         FOREIGN KEY (fk_id_comunidad_autonoma) REFERENCES comunidades_autonomas(id)
 ); 
 
+CREATE TABLE IF NOT EXISTS eventos(
+        id INT AUTO_INCREMENT,
+		fecha_ini DATE,
+        fecha_fin DATE,
+        hora_empezar VARCHAR(6),
+        hora_terminar VARCHAR(6),
+        modalidad VARCHAR(20),
+        tematica VARCHAR(50),
+        colectivo VARCHAR(60),
+        
+        PRIMARY KEY(id)
+);
+
 CREATE TABLE IF NOT EXISTS valoraciones(
         id INT AUTO_INCREMENT,
 		valoracion INT,

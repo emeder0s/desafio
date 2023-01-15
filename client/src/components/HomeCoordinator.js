@@ -4,7 +4,7 @@ import { Footer } from "./layout/Footer";
 import "../css/coordinator.css"
 
 
-function Coordinator() {
+function HomeCoordinator() {
     const [events, setEvents] = useState();
 
     const getEvents = () => {
@@ -42,15 +42,15 @@ function Coordinator() {
                         <Link>
                             <div className="container-event">
                                 <div className="event-img"></div>
+                                hola
                                 <div></div>
                             </div>
                         </Link>
                     )})
                 :""}
             </div>
-            <Footer/>
         </div>
     );
 }
 
-export default Coordinator;
+export default HomeCoordinator;
