@@ -17,7 +17,7 @@ export const Router = () => {
                     <Route path="/loading/:rol" element={<Loading/>} />
                     <Route path="/home" element={<Home/>} />
                     <Route path="/evento/:id" element={<Event/>} />  
-                    <Route path="/coordinador" element={<Coordinator/>} />           
+                    {/*<Route path="/coordinador" element={<Coordinator/>} />            */}
                 </Routes>
             </div>
         </BrowserRouter>
