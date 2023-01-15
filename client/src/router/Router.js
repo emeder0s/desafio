@@ -4,7 +4,7 @@ import { Home } from "../components/Home"
 import { FormLogin } from "../components/FormLogin"
 import { Loading } from "../components/Loading"
 import  Event  from "../pages/Event"
-
+import  Coordinator  from "../pages/Coordinator"
 
 export const Router = () => {
 
@@ -15,7 +15,8 @@ export const Router = () => {
                     <Route path="/" element={<FormLogin/>} />
                     <Route path="/loading" element={<Loading/>} />
                     <Route path="/home" element={<Home/>} />
-                    <Route path="/evento/:id" element={<Event/>} />           
+                    <Route path="/evento/:id" element={<Event/>} />  
+                    <Route path="/coordinador" element={<Coordinator/>} />           
                 </Routes>
             </div>
         </BrowserRouter>
