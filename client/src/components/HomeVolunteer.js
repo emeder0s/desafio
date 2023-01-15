@@ -123,11 +123,7 @@ export const HomeVolunteer = () => {
                     )) : ""}
 
                 </div> */}
-
             </div>
-
-            <Footer/>
-
         </div>
     )
 
