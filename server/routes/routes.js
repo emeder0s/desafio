@@ -18,6 +18,8 @@ router.get("/get-role", user.getRole);
 router.post("/new-request",request.new);
 router.post("/accept-request",request.acceptRequest);
 router.post("/reject-request",request.rejectRequest);
+router.get("/get-coordinator-requests",request.getRequestsByCoordinator);
+
 
 //REQUEST 
 router.post("/new-registration",registration.new);

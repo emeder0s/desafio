@@ -9,6 +9,8 @@ import "../css/coordinator.css"
 function HomeCoordinator() {
     const [events, setEvents] = useState();
     const [coordinator,setCoordinator] = useState();
+    const [totalPendings,setTotalPendings] = useState();
+    const [totalConfirmed,settotalConfirmed] = useState();
     var [search,setSearch] = useState();
 
     const getEvents = () => {
@@ -16,7 +18,6 @@ function HomeCoordinator() {
             .then((res) => res.json(res))
             .then(res => {
                 setEvents(res);
-                console.log(res);
                 var results = res.map(() =>{return true})
                 setSearch(results);
             });
@@ -26,7 +27,6 @@ function HomeCoordinator() {
         if(e.key === 'Enter'){
             var value = document.getElementById("search-input").value.toLowerCase();
             var results = events.map((event,i) =>{
-                console.log(event);
                  var name = event.titulo.toLowerCase(); 
                  if (name.includes(value)){
                      return true
@@ -38,17 +38,18 @@ function HomeCoordinator() {
         }
     }
 
-    // const getRequests = () => {
-    //     fetch(`/get-coordinator-requests`)
-    //         .then((res) => res.json(res))
-    //         .then(res => {
-                
-    //         });
-    // }
+    const getRequests = () => {
+        fetch(`/get-coordinator-requests`)
+            .then((res) => res.json(res))
+            .then(res => {
+                setTotalPendings(res.pendings.length);
+                settotalConfirmed(res.accepted.length);
+            });
+    }
 
     useEffect(() => {
         getEvents();
-        // getRequests();
+        getRequests();
     }, [])
 
     return (
@@ -61,8 +62,8 @@ function HomeCoordinator() {
                 <div className="coordinator-img"></div>   
                 <div className="info">
                    <div className="coordinator-name">Elena Mederos Cebreros</div> 
-                   <div className="pending-requests">135 solicitudes pendientes</div> 
-                   <div className="confirm-requests">35 confirmadas</div> 
+                   <div className="pending-requests">{totalPendings} solicitudes pendientes</div> 
+                   <div className="confirm-requests">{totalConfirmed} confirmadas</div> 
                 </div>
             </div>
             <div>
