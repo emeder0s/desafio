@@ -95,13 +95,13 @@ export const FormLogin = () => {
                 </div>
 
                 <div className='textForm'>
-                    <p>No soy voluntario,pero me gustaría serlo</p>
-                    {/* <a href=""> Quiero ser voluntario</a> */}
+                    <p id="be-volun">No soy voluntario,pero me gustaría serlo</p>
+                    <a href=""> Quiero ser voluntario</a>
                 </div>
 
                 <div className='textForm'>
-                    <p>Vaya, parece que he olvidado el password</p>
-                    {/* <a href="">¿Podeís enviármelo?</a> */}
+                    <p id="forget-pass">Vaya, parece que he olvidado el password</p>
+                    <a href="">¿Podeís enviármelo?</a>
                 </div>
 
                 <div className='socialMedia'>
