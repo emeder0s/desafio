@@ -1,7 +1,8 @@
 .imageCarrusel {
-    height: 170px;
-    min-width: 180px;
+    
+    min-width: 190px;
     padding: 5px;
+    border-radius: 2px;
 }
 
 .imageCarrusel img {
@@ -16,6 +17,8 @@
     display: flex;
     cursor: grab;
     background-color: #f3f0f0f8;
+    width: 1200px;
+   
 }
 
 .slider-container {
@@ -43,10 +46,11 @@
 
 
 .pTitleEvent {
-    font-size: 24px;
+    margin-top: 38px;
+    font-size: 22px;
     font-weight: bold;
-    margin-top: 20px;
-    margin-bottom: 10px;
+    margin-bottom: 2px;
+    width: 220px;
 }
 
 .pEvent {
