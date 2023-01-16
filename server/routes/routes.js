@@ -26,5 +26,6 @@ router.post("/new-registration",registration.new);
 router.post("/new-event",activity.newEvent);
 router.get("/get-event/:id",activity.getEvent);
 router.get("/get-coordinator-events",activity.getEventsByCoordinator);
+router.get("/get-events",activity.getEvents);
 
 module.exports = router;
