@@ -46,8 +46,7 @@ const activity = {
     try {
       var con = await connection.open();
       const activityM = await activityModel.create(con);
-      // const activities = await activityM.findAll({ where: { coordinador: user.get_id_from_cookie(req) } })
-      const activities = await activityM.findAll({ where: { coordinador:1 } })
+      const activities = await activityM.findAll({ where: { coordinador: user.get_id_from_cookie(req) } })
       res.json(activities);
     } catch (ValidationError) {
         console.log(ValidationError);

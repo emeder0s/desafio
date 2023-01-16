@@ -8,6 +8,10 @@
          url("../fonts/sf-pro-display-cufonfonts/SFPRODISPLAYULTRALIGHTITALIC.OTF") format("opentype"),
 }
 
+input:focus, select:focus {
+    outline: none;
+}
+
 .formLogin {
     width: 100%;
     max-width: 600px;

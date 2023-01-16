@@ -24,6 +24,10 @@ export const FormLogin = () => {
             switch (e.target.documents.value) {
                 case "dni":
                     var {validation, message } = checkDni(e.target.docUser.value);
+                    if(!validation){
+                        setMsn(message);
+                        document.getElementById("error-message").style.display="block";
+                    }
                     break;
                 case "pasaporte":
                     var {validation, message} = {validation:false,message:""};
@@ -33,8 +37,6 @@ export const FormLogin = () => {
                     break;
                 default:
                     var {validation, message} = {validation:false,message: "El tipo de documento elegido no es correcto"};
-                    setMsn(message);
-                    document.getElementById("error-message").style.display="block";
             }
 
             if (validation){
