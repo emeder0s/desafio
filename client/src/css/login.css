@@ -59,7 +59,7 @@
 }
 
 .userPass input {
-    margin-bottom: 50px;
+    margin-bottom: 24px;
     border: none;
     border-bottom: 1px solid;
     padding-bottom: 7px;
@@ -125,8 +125,8 @@
 .imgLogin{
     width: 160px;
     height: 38.19;
-    margin-bottom: 60px;
-    margin-top: 80px;
+    margin-bottom: 56px;
+    margin-top: 56px;
 }
 
 .iconMedia{
@@ -155,4 +155,11 @@
     font-size: 12px;
     font-weight: 600;
     color:rgb(74, 72, 72);
+}
+
+#error-message {
+    display: block;
+    font-size: 14px;
+    text-align: center;
+    color: red;
 }

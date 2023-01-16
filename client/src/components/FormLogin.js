@@ -17,6 +17,7 @@ export const FormLogin = () => {
     
     const loginUser = async e => {
         e.preventDefault();
+        document.getElementById("error-message").style.display="none";
         const cleanDni = checkNotAllChar(e.target.docUser.value);
         const cleanPass = checkNotAllChar(e.target.passwordUser.value);
         if (cleanDni && cleanPass){
@@ -32,6 +33,8 @@ export const FormLogin = () => {
                     break;
                 default:
                     var {validation, message} = {validation:false,message: "El tipo de documento elegido no es correcto"};
+                    setMsn(message);
+                    document.getElementById("error-message").style.display="block";
             }
 
             if (validation){
@@ -57,23 +60,17 @@ export const FormLogin = () => {
                             navigate(`/loading/${btoa(response.user.rol)}`);
                         }else {
                             setMsn(response.message);
+                            document.getElementById("error-message").style.display="block";
                         }
                 })
-             }else {
-                setMsn(message);
              }
         }
     }
 
     return (
         <div className='formLogin'>
-            {/* <div>
-                <img src={statusBar} className='statusBar' alt="" />
-            </div> */}
             <img src={logo} className='imgLogin' alt="" />
-
             <form className='formUser' onSubmit={loginUser}>
-
                 <div className='typeDocuments'>
                     <select name="documents" className='selectDocuments'>
                         <option value="dni">DNI</option>
@@ -81,44 +78,34 @@ export const FormLogin = () => {
                         <option value="nie">NIE</option>
                     </select>
                 </div>
-
                 <div className='documentNumber'>
                     <input type="text" required placeholder='Número de documento' name='docUser' />
                 </div>
-
                 <div className='userPass'>
                     <input type="password" required placeholder='Contraseña' name='passwordUser' />
                 </div>
-
                 <div className='divSubmitForm'>
+                    <p id="error-message" style={{display: "none"}}>{msn}</p>
                     <input type="submit" value="Acceder" className='butForm'/>
                 </div>
-
                 <div className='textForm'>
                     <p id="be-volun">No soy voluntario,pero me gustaría serlo</p>
                     <a href=""> Quiero ser voluntario</a>
                 </div>
-
                 <div className='textForm'>
                     <p id="forget-pass">Vaya, parece que he olvidado el password</p>
                     <a href="">¿Podeís enviármelo?</a>
                 </div>
-
                 <div className='socialMedia'>
                     <p>¿O podría acceder con?</p>
                 </div>
-
                 <div className='iconMedia'>
                     <img src={logoGoogle} className="imgIcon" alt='logo google' />
                     <img src={logoApple} className="imgIcon" alt='logo apple' />
                     <img src={logoFacebook} className="imgIcon" alt='logo facebook' />
                 </div>
-
                 <p></p>
             </form>
-            {/* <div>
-                <img src={rectangle} className='rectangleBar' alt="" />
-            </div> */}
         </div>
     )
 }
