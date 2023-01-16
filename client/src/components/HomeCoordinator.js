@@ -66,7 +66,7 @@ function HomeCoordinator() {
                 </div>
             </div>
             <div>
-            <div className="new-event-container"><a className="new-event" href="">Nuevo Evento</a></div>
+            <div className="new-event-container"><a className="new-event" href="/nuevo-evento">Nuevo Evento</a></div>
             <p className='pTitleEvent'>Eventos publicados</p>
                 {events ?
                 events.map((event, i) => {
