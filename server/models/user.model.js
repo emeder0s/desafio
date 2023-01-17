@@ -34,6 +34,9 @@ userModel = {
             },
             image: {
                 type: DataTypes.STRING,
+            },
+            localidad: {
+                type: DataTypes.STRING,
             }
         }, {
             timestamps: false
