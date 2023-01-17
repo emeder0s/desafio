@@ -6,7 +6,7 @@ import { FormLogin } from "../components/FormLogin"
 import { Loading } from "../components/Loading"
 import  Event  from "../pages/Event"
 import  NewEvent  from "../pages/NewEvent"
-import  Coordinator  from "../components/HomeCoordinator"
+import EventRequests from "../pages/EventRequests"
 
 export const Router = () => {
 
@@ -18,8 +18,8 @@ export const Router = () => {
                     <Route path="/loading/:rol" element={<Loading/>} />
                     <Route path="/home" element={<Home/>} />
                     <Route path="/evento/:id" element={<Event/>} />
+                    <Route path="/solicitudes/evento/:id" element={<EventRequests/>} />
                     <Route path="/nuevo-evento" element={<NewEvent/>} />  
-                    {/*<Route path="/coordinador" element={<Coordinator/>} />            */}
                 </Routes>
             </div>
         </BrowserRouter>
