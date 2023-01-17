@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { HiOutlineLocationMarker } from "react-icons/hi";
 import { AiOutlineCheckCircle, AiOutlineCloseCircle } from "react-icons/ai";
+import { CiSearch } from "react-icons/ci";
 import { useParams } from "react-router-dom";
 import logo from '../img/logo.png';
 import { MenuModal } from '../components/MenuModal';
@@ -10,10 +11,11 @@ import '../css/coordinator.css'
 function EventRequests() {
     var { id } = useParams();
     id = atob(id);
+    const [titleEvent,setTitleEvent] = useState();
     const [coordinator,setCoordinator] = useState();
     const [requests,setRequests] = useState();
     const [totalPendings,setTotalPendings] = useState(0);
-    const [totalConfirmed,settotalConfirmed] = useState(0);
+    const [totalConfirmed,setTotalConfirmed] = useState(0);
     var [search,setSearch] = useState();
 
     const getRequests = () => {
@@ -26,6 +28,15 @@ function EventRequests() {
          });
     }
 
+    const getTotalNumberRequest = () => {
+        fetch(`/get-coordinator-events`)
+            .then((res) => res.json(res))
+            .then(res => {
+                setTotalPendings(res.totalPending);
+                setTotalConfirmed(res.totalAccepted);
+            });
+    }
+
     const getCoordinator = () => {
         fetch(`/get-logued-coordinator`)
             .then((res) => res.json(res))
@@ -36,6 +47,7 @@ function EventRequests() {
 
     useEffect(() => {
         getCoordinator();
+        getTotalNumberRequest();
         getRequests();
     }, []);
 
@@ -70,6 +82,8 @@ function EventRequests() {
             .then((res) => {
                 if(res){
                     updateRegistrations();
+                    setTotalConfirmed(totalConfirmed+1);
+                    setTotalPendings(totalPendings-1);
                     document.getElementById(`container-${id_request}`).style.display="none";
                 }         
         })
@@ -89,9 +103,26 @@ function EventRequests() {
             .then((res) => res.json())
             .then((res) => {
                 if(res){
+                    setTotalConfirmed(totalConfirmed+1);
+                    setTotalPendings(totalPendings-1);
                     document.getElementById(`container-${id_request}`).style.display="none";
                 } 
         })
+    }
+
+    const searchRequests = (e) => {
+        if(e.key === 'Enter'){
+            var value = document.getElementById("search-input").value.toLowerCase();
+            var results = requests.map((request,i) =>{
+                 var name = (request.user.nombre + " " + request.user.apellido_1 + " "+ request.user.apellido_2).toLowerCase(); 
+                 if (name.includes(value)){
+                     return true
+                 }else{
+                    return false
+                }
+            })
+            setSearch(results);
+        }
     }
 
     return (
@@ -101,16 +132,22 @@ function EventRequests() {
                 <div><MenuModal /></div>
             </div> 
            <div className="page-content-coord">
+           <div className="search-input-container">
+                <CiSearch className="search-icon"/>
+                <input id="search-input" className="seach-input" placeholder="Buscar" onKeyDown={searchRequests}></input>
+            </div>
             {coordinator ?
                 <div className="coordinator-intro">
                     <div className="coordinator-img"><img className="coordinator-image" src={`/users/${coordinator.image}`}></img></div>   
                     <div className="info">
                     <div className="coordinator-name">{coordinator.nombre} {coordinator.apellido_1} {coordinator.apellido_2}</div> 
-                    {/* <div className="pending-requests">{totalPendings} solicitudes pendientes</div> 
-                    <div className="confirm-requests">{totalConfirmed} confirmadas</div>  */}
+                    <div className="pending-requests">{totalPendings} solicitudes pendientes</div> 
+                    <div className="confirm-requests">{totalConfirmed} confirmadas</div> 
                     </div>
                 </div>
             :"" }
+            <div className="new-event-container">+<a className="new-event" href="">Filtrar por nombre</a></div>
+            <p className='pTitleEvent'>{titleEvent}</p>
             {requests ?  
                 requests.map((request, i) => {
                     return(
