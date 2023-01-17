@@ -3,8 +3,10 @@ import { useParams, Link } from "react-router-dom";
 import logo from '../img/logo.png'
 import logoComunidad from '../img/logoComunidad.png'
 import { Footer } from "../components/layout/Footer";
-import { Menu } from "../components/Menu";
 import imgMedicinas from '../img/imgMedicinas.png'
+import { MenuModal } from "../components/MenuModal";
+import { ButtonBack } from "../components/ButtonBack"
+
 
 function Event() {
     const { id } = useParams();
@@ -47,39 +49,41 @@ function Event() {
         title: 'Reparto de medicinas',
         subtitle: 'Cruz Roja Española Sierra Norte',
         descripcion: 'La intervención de Cruz Roja Española (CRE) en materia de prevención y promoción de la salud ha estado enmarcada en estos últimos años por el Plan de Salud que vio la luz en 2007',
-        image:imgMedicinas
+        image: imgMedicinas
     }
+
 
 
     return (
         <div className="page-content">
-    
+           
             <div className='divLoginCar'>
+            <p className="buttonBack"><ButtonBack/></p>
                 <img src={logo} className='imgLogin2' alt="Logo Cruz Roja" />
-                <p><Menu/></p>
+                <p><MenuModal /></p>
             </div>
 
             {/* {event ?  */}
             <div className="divContEvent">
                 {/* <img src={imagesEvents.image} className="imgEventR" /> */}
-                <img src={imagesEvents.image}/>
+                <img src={imagesEvents.image} />
                 <div className="divTextEvent">
                     <h2 className="h2Title">{imagesEvents.title}</h2>
                     <p>{imagesEvents.subtitle}</p>
                 </div>
                 <div className="divCom">
-                <img src={logoComunidad} className='imgLogoCom' alt="Logo Cruz Roja" />
-                <button onClick={() => { enrollTo() }} className="butAsis">Asistir</button>
-                
+                    <img src={logoComunidad} className='imgLogoCom' alt="Logo Cruz Roja" />
+                    <button onClick={() => { enrollTo() }} className="butAsis">Asistir</button>
+
                 </div>
-                <hr/>
+                <hr />
                 <h2 className="h2Sub">¿Qué vamos a hacer?</h2>
                 <p className="pDesc">{imagesEvents.descripcion}</p>
-                <hr/>
+                <hr />
                 <h2 className="h2Coor">¿Quién es nuestro coordinador?</h2>
             </div>
             {/* :""}   */}
-            <Footer/>
+            <Footer />
         </div>
     );
 }

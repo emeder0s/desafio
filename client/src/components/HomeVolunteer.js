@@ -3,8 +3,9 @@ import { motion } from 'framer-motion'
 import logo from '../img/logo.png'
 import MyCalendar from './MyCalendar'
 import { Footer } from './layout/Footer'
-import { Menu } from './Menu'
+
 import { MenuAllEvents } from './MenuAllEvents'
+import { MenuModal } from './MenuModal'
 
 
 
@@ -31,6 +32,8 @@ export const HomeVolunteer = () => {
 
     }, [])
 
+    
+
 
 
     return (
@@ -40,13 +43,13 @@ export const HomeVolunteer = () => {
                 <img src={logo} className='imgLogin2' alt="Logo Cruz Roja" />
 
 
-                <div><Menu /></div>
+                <div><MenuModal /></div>
             </div>
 
             <motion.div className='slider-container'>
                 <p className='pTitleEvent'>Eventos Recomendados</p>
                 <motion.div className='slider' drag='x'
-                    dragConstraints={{ right: 0, left: -954 }} >
+                    dragConstraints={{ right: 0, left: -785 }} >
 
                     {events ? events.map((everyEvent, i) => (
                         <motion.div className='imageCarrusel'>

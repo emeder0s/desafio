@@ -25,9 +25,9 @@ export const MenuAllEvents = () => {
 
     return (
         <div>
-            <a href="#openModal" className='aModal'>Ver todos</a>
+            <a href="#openModal2" className='aModal2'>Ver todos</a>
 
-            <div id="openModal" class="modalDialog">
+            <div id="openModal2" class="modalDialog">
                 <div className='modalEventsTotal'>
                     <a href="#close" title="Close" class="close">X</a>
 
