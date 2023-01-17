@@ -5,7 +5,7 @@ import back from '../img/back.png'
 export const ButtonBack = () => {
     return (
       <NavLink to="/home">
-        <button > <img src={back}/></button>
+        <button className="butBackEvent" > <img src={back}/></button>
       </NavLink>
     );
   }
