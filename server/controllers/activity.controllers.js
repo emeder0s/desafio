@@ -1,5 +1,6 @@
 const connection = require("../databases/sequelize");
 const activityModel = require("../models/activity.model");
+const activityCarrusel = require("../models/activity_carrusel.model")
 const user = require("./user.controllers");
 
 const activity = {
@@ -56,6 +57,22 @@ const activity = {
     }
   },
 
+
+//Devuelve los 6 eventos que hay en el carrusel
+  getEvents: async (req, res) => {
+    try {
+      var con = await connection.open();
+      const activityM = await activityCarrusel.create(con);
+      const allActivity = await activityM.findAll();
+      res.json(allActivity);
+    } catch (ValidationError) {
+        console.log(ValidationError);
+      res.json(false);
+    }finally{
+      await connection.close(con);
+    }
+  },
+
     /**
    * Guarda el producto como favorito
    * @param {*} req 
@@ -90,6 +107,7 @@ const activity = {
       //   res.json(false);
       // }
     },
+
 
 }
 

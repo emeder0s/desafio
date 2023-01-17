@@ -28,7 +28,11 @@ router.post("/new-registration",registration.new);
 router.post("/new-event",activity.newEvent);
 router.get("/get-event/:id",activity.getEvent);
 router.get("/get-coordinator-events",activity.getEventsByCoordinator);
+
+router.get("/get-events",activity.getEvents);
+
 router.post("/save-favorite",activity.saveFavorite);
 router.delete("/delete-favorite",activity.deleteFavorite);
+
 
 module.exports = router;

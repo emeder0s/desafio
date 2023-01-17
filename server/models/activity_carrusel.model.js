@@ -1,8 +1,8 @@
 const { Sequelize, DataTypes } = require('sequelize');
 
-eventModel = {
+eventCarruselModel = {
     create: async (sequelize) => {
-        const Users = sequelize.define("actividades",{
+        const Users = sequelize.define("actividades_carrusels",{
             id: {
                 type: DataTypes.INTEGER,
                 autoIncrement: true,
@@ -19,6 +19,9 @@ eventModel = {
             },
             fecha_ini: {
                 type: DataTypes.STRING,
+            },
+            image: {
+                type: DataTypes.STRING,
             }
         }, {
             timestamps: false
@@ -27,4 +30,4 @@ eventModel = {
     }
 }
 
-module.exports = eventModel;
+module.exports = eventCarruselModel;
