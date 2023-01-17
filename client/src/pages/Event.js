@@ -61,7 +61,7 @@ function Event() {
         <div className="page-content">
 
             <div className='divLoginCar'>
-                <p className="buttonBack"><ButtonBack /></p>
+                <p className="buttonBack"><ButtonBack/></p>
                 <img src={logo} className='imgLogin2' alt="Logo Cruz Roja" />
                 <p><MenuModal /></p>
             </div>
@@ -70,7 +70,7 @@ function Event() {
 
             {event &&
 
-                <div>
+                <div className="boxEventDates">
                     <img src={`/${event.image}`} className="imgEventAll2" alt="" />
                     <div className="pfichaDoc">
                     <p className='pCarruselEvent2'>{event.titulo} </p>
@@ -85,23 +85,23 @@ function Event() {
                     <p className='pCarruselTime3'>h</p>
                     </div>
 
-                    <div className="divContEvent">
+                    <div className="divContEvent2">
 
-                        <div className="divCom">
+                        <div className="divCom2">
                             <img src={logoComunidad} className='imgLogoCom' alt="Logo Cruz Roja" />
                             <button onClick={() => { enrollTo() }} className="butAsis">Asistir</button>
 
                         </div>
                         <hr />
 
-                        <h2 className="h2Sub">¿Qué vamos a hacer?</h2>
+                        <h2 className="pCarruselEvent2">¿Qué vamos a hacer?</h2>
 
                     </div>
                     <p className='pCarruselLocal'>{event.descripcion}</p>
 
                     <hr />
 
-                    <h2 className="h2Coor">¿Quién es nuestro coordinador?</h2>
+                    <h2 className="pCarruselEvent2">¿Quién es nuestro coordinador?</h2>
 
                     <p className='pCarruselLocal'>{event.coordinador}</p>
 
@@ -109,7 +109,7 @@ function Event() {
             }
 
 
-            <Footer />
+            <Footer className=".footerC2" />
         </div>
     );
 }

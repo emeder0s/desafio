@@ -32,7 +32,7 @@ export const HomeVolunteer = () => {
 
     }, [])
 
-    
+
 
 
 
@@ -47,7 +47,10 @@ export const HomeVolunteer = () => {
             </div>
 
             <motion.div className='slider-container'>
-                <p className='pTitleEvent'>Eventos Recomendados</p>
+                <div className='menuFormation'>
+                    <p className='pTitleEvent'>Eventos Recomendados</p>
+                    <p className='pPesEvent'><MenuAllEvents /></p>
+                </div>
                 <motion.div className='slider' drag='x'
                     dragConstraints={{ right: 0, left: -785 }} >
 
@@ -56,14 +59,16 @@ export const HomeVolunteer = () => {
 
                             <div key={i} className="boxEventAll">
                                 <img src={`/${everyEvent.image}`} className="imgEventAll" alt="" />
-                                <p className='pCarruselEvent'>{everyEvent.titulo} </p>
-                                <p className='pCarruselLocal'>{everyEvent.localizacion}</p>
-                                <p className='pCarruselTime'>{everyEvent.fecha_ini}</p>
+                                <div className='divEventWhite'>
+                                    <p className='pCarruselEvent'>{everyEvent.titulo} </p>
+                                    <p className='pCarruselLocal'>{everyEvent.localizacion}</p>
+                                    <p className='pCarruselTime'>{everyEvent.fecha_ini}</p>
+                                </div>
                             </div>
 
                         </motion.div>
 
-                    )) : "no hay"}
+                    )) : "Cargando..."}
 
 
                 </motion.div>
@@ -79,10 +84,10 @@ export const HomeVolunteer = () => {
 
             <motion.div className='slider-container'>
                 <div className='divPesEvent'>
-                <p className='pTitleEvent'>Eventos Disponibles</p>
-                <p className='pPesEvent'><MenuAllEvents/></p>
+                    <p className='pTitleEvent'>Eventos Disponibles</p>
+                    <p className='pPesEvent'><MenuAllEvents /></p>
                 </div>
-                
+
                 <motion.div className='slider' drag='x'
                     dragConstraints={{ right: 0, left: -772 }} >
 
@@ -92,34 +97,28 @@ export const HomeVolunteer = () => {
 
                             <div key={i} className="boxEventAll">
                                 <img src={`/${everyEvent.image}`} className="imgEventAll" alt="" />
-                                <p className='pCarruselEvent'>{everyEvent.titulo} </p>
-                                <p className='pCarruselLocal'>{everyEvent.localizacion}</p>
-                                <p className='pCarruselTime'>{everyEvent.fecha_ini}</p>
+                                <div className='divEventWhite'>
+                                    <p className='pCarruselEvent'>{everyEvent.titulo} </p>
+                                    <p className='pCarruselLocal'>{everyEvent.localizacion}</p>
+                                    <p className='pCarruselTime'>{everyEvent.fecha_ini}</p>
+                                </div>
                             </div>
 
                         </motion.div>
 
-                    )) : "no hay"}
+                    )) : "Cargando..."}
 
                 </motion.div>
 
             </motion.div>
 
-            {/* <div className='divTotalCarrusel'>
-                {events ? events.map((everyEvent, i) => (
-
-                    <div key={i} className="boxEventAll">
-                        <p className='pCarruselEvent'>{everyEvent.titulo} </p>
-                        <p className='pCarruselLocal'>{everyEvent.localizacion}</p>
-                        <p className='pCarruselTime'>{everyEvent.fecha_ini}</p>
-                    </div>
-
-                )) : "no hay"}
-            </div> */}
-
             <div className='divFormations'>
+                <div className='menuFormation'>
 
-                <p className='pForm'>Formaciones</p>
+                    <p className='pForm'>Formaciones</p>
+                    <p className='pPesEvent'><MenuAllEvents /></p>
+
+                </div>
                 {/* 
                 <div>
 
