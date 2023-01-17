@@ -3,9 +3,10 @@ import { motion } from 'framer-motion'
 import logo from '../img/logo.png'
 import MyCalendar from './MyCalendar'
 import { Footer } from './layout/Footer'
-
+import { useParams, useNavigate } from "react-router-dom";
 import { MenuAllEvents } from './MenuAllEvents'
 import { MenuModal } from './MenuModal'
+import { NavLink } from 'react-router-dom'
 
 
 
@@ -14,6 +15,7 @@ export const HomeVolunteer = () => {
     const [events, setEvents] = useState()
     const [calendar, setCalendar] = useState(true)
     const [formations, setFormations] = useState(true)
+    const navigate = useNavigate();
 
 
 
@@ -32,6 +34,11 @@ export const HomeVolunteer = () => {
 
     }, [])
 
+    function goToPag(id) {
+        // window.location = id
+        navigate(id);
+        
+    }
 
 
 
@@ -52,13 +59,15 @@ export const HomeVolunteer = () => {
                     <p className='pPesEvent'><MenuAllEvents /></p>
                 </div>
                 <motion.div className='slider' drag='x'
-                    dragConstraints={{ right: 0, left: -785 }} >
+                    dragConstraints={{ right: 0, left: -880 }} >
 
                     {events ? events.map((everyEvent, i) => (
                         <motion.div className='imageCarrusel'>
 
                             <div key={i} className="boxEventAll">
-                                <img src={`/${everyEvent.image}`} className="imgEventAll" alt="" />
+                                <button onClick={() => goToPag(`/evento/${everyEvent.id}`)} className="butStart">
+                                    <img src={`/${everyEvent.image}`} className="imgEventAll" alt="" />
+                                </button>
                                 <div className='divEventWhite'>
                                     <p className='pCarruselEvent'>{everyEvent.titulo} </p>
                                     <p className='pCarruselLocal'>{everyEvent.localizacion}</p>
@@ -89,14 +98,16 @@ export const HomeVolunteer = () => {
                 </div>
 
                 <motion.div className='slider' drag='x'
-                    dragConstraints={{ right: 0, left: -772 }} >
+                    dragConstraints={{ right: 0, left: -880 }} >
 
 
                     {events ? events.map((everyEvent, i) => (
                         <motion.div className='imageCarrusel'>
 
                             <div key={i} className="boxEventAll">
-                                <img src={`/${everyEvent.image}`} className="imgEventAll" alt="" />
+                            <button onClick={() => goToPag(`/evento/${everyEvent.id}`)} className="butStart">
+                                    <img src={`/${everyEvent.image}`} className="imgEventAll" alt="" />
+                                </button>
                                 <div className='divEventWhite'>
                                     <p className='pCarruselEvent'>{everyEvent.titulo} </p>
                                     <p className='pCarruselLocal'>{everyEvent.localizacion}</p>
