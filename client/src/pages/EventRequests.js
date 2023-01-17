@@ -39,6 +39,24 @@ function EventRequests() {
         getRequests();
     }, []);
 
+    const updateRegistrations = async ()=> {
+        console.log({id});
+        let Metadatos = {
+            method: 'POST',
+            body: JSON.stringify({id}),
+            mode: "cors",
+            headers: {
+                "Access-Control-Allow-Origin": "*",
+                "Content-type": "application/json",
+            },
+        };
+        await fetch("/update-registrations", Metadatos)
+            .then((res) => res.json())
+            .then((res) => {     
+                console.log(true);   
+        })
+    }
+
     const acceptRequest = async (id_request)=> {
         let Metadatos = {
             method: 'POST',
@@ -53,6 +71,7 @@ function EventRequests() {
             .then((res) => res.json())
             .then((res) => {
                 if(res){
+                    updateRegistrations();
                     document.getElementById(`container-${id_request}`).style.display="none";
                 }         
         })

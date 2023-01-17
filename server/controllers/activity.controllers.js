@@ -85,14 +85,26 @@ const activity = {
     }
   },
 
-  updateRegistrations: async (con,id) => {
-    try{
+  /**
+   * 
+   * @param {*} req 
+   * @param {*} res 
+   */
+  updateRegistrations: async (req,res) => {
+    try {
+      var con = await connection.open();
+      const { id } = req.body;
+      console.log(id);
       const activityM = await activityModel.create(con);
       const activity = await activityM.findOne({where:{id}}); 
       var registrations = parseInt(activity.dataValues.inscripciones) + 1;
       await activityM.update({inscripciones:registrations},{where:{id}});
-    }catch(e){
-      console.log(e);
+      res.json(true);
+    } catch (ValidationError) {
+        console.log(ValidationError);
+        res.json(false);
+    }finally{
+      await connection.close(con);
     }
   },
 

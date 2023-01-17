@@ -1,6 +1,7 @@
 const connection = require("../databases/sequelize");
 const registrationModel = require("../models/registration.model");
 
+
 const registration = {
   /**
    * Inserta un user

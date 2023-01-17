@@ -3,7 +3,6 @@ const connection = require("../databases/sequelize");
 const requestModel = require("../models/registration_request.model");
 const user = require("./user.controllers");
 const registration = require("./registration.controllers");
-const event = require("./activity.controllers");
 
 const requestRegistration = {
   /**
@@ -39,7 +38,6 @@ const requestRegistration = {
       await requestM.update({ estado:"aceptada" }, {where:{id:id_request}});
       const request = await requestM.findOne({where:{id:id_request}});
       await registration.new(con,request.dataValues.fk_id_actividad,request.dataValues.fk_id_user);
-      await event.updateRegistrations(con,request.dataValues.fk_id_actividad);
       res.json(true);
     } catch (ValidationError) {
         console.log(ValidationError);
