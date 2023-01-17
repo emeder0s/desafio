@@ -39,8 +39,11 @@
 
 .pModal {
   padding-bottom: 10px;
-  color:#4B4B4B;
+
   font-size: 16px;
+
+  color: #090a0a;
+
 }
 
 .divModal {
@@ -80,11 +83,25 @@
   text-align: center;
 }
 
+
 .pPesEvent {
   margin: 0 auto;
   margin-bottom: 2px;
   margin-top: 45px;
   margin-left: 120px;
+}
+
+#mostrar-modal+label {
+  display: table;
+  margin: auto;
+  color: #fff;
+  line-height: 3;
+  padding: 0 1em;
+  text-transform: uppercase;
+  cursor: pointer;
+  margin-left: 100px;
+  color: #090a0a;
+  
 
 }
 

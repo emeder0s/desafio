@@ -6,6 +6,7 @@ import "./css/calendar.css"
 import "./css/footer.css"
 import "./css/menu.css"
 import "./css/event.css"
+import "./css/body.css"
 
 
 
