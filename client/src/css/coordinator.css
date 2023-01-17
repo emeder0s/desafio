@@ -81,6 +81,7 @@ input.seach-input {
     flex-direction: column;
     align-content: flex-end;
     align-items: flex-end;
+    margin-left: 62px !important;
 }
 
 .event-title{

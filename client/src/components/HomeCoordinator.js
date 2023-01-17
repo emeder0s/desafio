@@ -84,7 +84,7 @@ function HomeCoordinator() {
                                             <div className="event-location" key={`localtion-${i}`}><HiOutlineLocationMarker/> {event.municipio}</div>
                                             <div key={`request-${i}`}>{event.requests.pendings.length} solicitudes| {event.requests.accepted.length} confirmadas</div>
                                             <div key={`chart-request-container${i}`}>
-                                                {/* <ChartRequest accepts={event.requests.accepted.length} pending={event.requests.pendings.length} total={event.plazas} key={`chart-request-${i}`}></ChartRequest> */}
+                                                <ChartRequest accepts={event.requests.accepted.length} pending={event.requests.pendings.length} total={event.plazas} key={`chart-request-${i}`}></ChartRequest>
                                             </div>
                                         </div>
                                         <div className="event-datetime" key={`event-datetime-${i}`}>

@@ -93,9 +93,7 @@ const requestRegistration = {
     getRequestsByEvent: async (fk_id_actividad,con) => {
       const requestM = await requestModel.create(con);
       const pendings = await requestM.findAll({where:{fk_id_actividad,estado:"pendiente"}});
-      console.log(pendings);
       const accepted = await requestM.findAll({where:{fk_id_actividad,estado:"aceptada"}}); 
-      console.log(accepted);
       return {pendings,accepted};
     }
 }
