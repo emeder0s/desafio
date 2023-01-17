@@ -92,9 +92,28 @@ const user = {
     } finally {
       await connection.close(con);
     }
-  }
+  },
 
-  
+  /**
+   * Devuelve los datos de un coordinador
+   * @param {json} req la petición
+   * @returns {integer} el id del usuario
+   */
+    getCoordinator: async (req, res) => {
+      try {
+        var con = await connection.open();
+        let jwtVerify = jwt.verify(req.cookies.session, process.env.SECRET_KEY);
+        const userM = await userModel.create(con);
+        const user = await userM.findOne({ where: { id:jwtVerify.id } });
+        res.json({nombre:user.dataValues.nombre,apellido_1:user.dataValues.apellido_1,apellido_2:user.dataValues.apellido_2,image:user.dataValues.image}) ;
+      } catch (ValidationError) {
+        console.log(ValidationError);
+        res.json(false);
+    }finally{
+        await connection.close(con);
+    }
+  },
+
   /**
    * Actualiza los datos de un usuario 
    * @param {*} req la petición

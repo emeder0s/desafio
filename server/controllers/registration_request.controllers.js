@@ -83,7 +83,21 @@ const requestRegistration = {
     }finally{
         await connection.close(con);
     }
-  }
+  },
+
+  /**
+   * Devuelve un json con el número de peticiones pendientes y las aceptadas 
+   * @param {json} req 
+   * @param {json} res 
+   */
+    getRequestsByEvent: async (fk_id_actividad,con) => {
+      const requestM = await requestModel.create(con);
+      const pendings = await requestM.findAll({where:{fk_id_actividad,estado:"pendiente"}});
+      console.log(pendings);
+      const accepted = await requestM.findAll({where:{fk_id_actividad,estado:"aceptada"}}); 
+      console.log(accepted);
+      return {pendings,accepted};
+    }
 }
 
 module.exports = requestRegistration;
