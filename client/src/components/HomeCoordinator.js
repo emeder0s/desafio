@@ -73,7 +73,7 @@ function HomeCoordinator() {
                 events.map((event, i) => {
                     return(
                         search[i] ? 
-                        <Link className="box-link" key={`link-${i}`}>
+                        <Link to={`/solicitudes/evento/${btoa(event.id)}`} className="box-link" key={`link-${i}`}>
                             <div className="container-event" key={`container-event-${i}`}>
                                 <div className="event-img" key={`event-img-${i}`}></div>
                                 <div className="event-details" key={`event-details-${i}`}>

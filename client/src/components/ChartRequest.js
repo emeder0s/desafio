@@ -20,7 +20,7 @@ function ChartRequest(props) {
     var widthBlue = getWidthBlue().toString() + "px";
 
         return (
-        <div class="container">
+        <div className="container">
            <div className="total-div">
                 <div className="blue" style={{width: widthBlue}}></div>
                 <div className="red" style={{width: widthRed}}></div>
