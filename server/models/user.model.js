@@ -31,6 +31,9 @@ userModel = {
             },
             num_doc: {
                 type: DataTypes.STRING,
+            },
+            image: {
+                type: DataTypes.STRING,
             }
         }, {
             timestamps: false

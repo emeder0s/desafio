@@ -2,7 +2,9 @@ const { Sequelize, DataTypes } = require('sequelize');
 
 eventModel = {
     create: async (sequelize) => {
-        const Users = sequelize.define("eventos",{
+
+        const Events = sequelize.define("eventos",{
+
             id: {
                 type: DataTypes.INTEGER,
                 autoIncrement: true,
@@ -14,7 +16,10 @@ eventModel = {
             descripcion: {
                 type: DataTypes.STRING,
             },
-            localizacion: {
+            coordinador: {
+                type: DataTypes.INTEGER,
+            },
+            municipio: {
                 type: DataTypes.STRING,
             },
             fecha_ini: {
@@ -31,13 +36,15 @@ eventModel = {
             },
             image: {
                 type: DataTypes.STRING,
+
             },
+
 
 
         }, {
             timestamps: false
         })
-        return Users
+        return Events
     }
 }
 
