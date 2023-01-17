@@ -40,7 +40,6 @@ function EventRequests() {
     }, []);
 
     const updateRegistrations = async ()=> {
-        console.log({id});
         let Metadatos = {
             method: 'POST',
             body: JSON.stringify({id}),
@@ -52,8 +51,7 @@ function EventRequests() {
         };
         await fetch("/update-registrations", Metadatos)
             .then((res) => res.json())
-            .then((res) => {     
-                console.log(true);   
+            .then((res) => {       
         })
     }
 
@@ -91,7 +89,6 @@ function EventRequests() {
             .then((res) => res.json())
             .then((res) => {
                 if(res){
-                    console.log(true);
                     document.getElementById(`container-${id_request}`).style.display="none";
                 } 
         })
