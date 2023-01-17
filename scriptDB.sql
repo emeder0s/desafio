@@ -162,15 +162,16 @@ CREATE TABLE IF NOT EXISTS actividades_carrusels(
         descripcion VARCHAR(1000),
         localizacion VARCHAR(64),
 		fecha_ini DATETIME,
+        hora_empezar VARCHAR(6),
         image VARCHAR(500),
-       /* categoria VARCHAR(12),
-       fecha_fin DATETIME*/
+        coordinador INT,
+
         PRIMARY KEY(id)
 );
 
-INSERT INTO actividades_carrusels VALUES (null,'Medios de rescate','Rescate a necesitados','Rascafría' ,'2023-02-10',"rescate.jpg");
-INSERT INTO actividades_carrusels VALUES (null,'Actuación con menores','Ayuda a menores','Canencia' ,'2023-03-07',"menores.jpg");
-INSERT INTO actividades_carrusels VALUES (null,'Reparto de medicinas','Repartir medicinas','Buitrago de Lozoya' ,'2023-04-21',"medicinas.jpg");
-INSERT INTO actividades_carrusels VALUES (null,'Apoyo en gestión','Gestionar','Madrid' ,'2023-04-21',"gestion.jpg");
-INSERT INTO actividades_carrusels VALUES (null,'Batidas de limpieza','Limpieza','Madrid' ,'2023-04-21',"limpieza.jpg");
-INSERT INTO actividades_carrusels VALUES (null,'Reparto de alimentos','Repartir alimentos','Madrid' ,'2023-04-21',"alimentos.jpg");
+INSERT INTO actividades_carrusels VALUES (null,'Medios de rescate','Rescate a necesitados','Rascafría' ,'2023-02-10',"10:00", "rescate.jpg","2");
+INSERT INTO actividades_carrusels VALUES (null,'Actuación con menores','Ayuda a menores','Canencia' ,'2023-03-07',"12:00","menores.jpg","2");
+INSERT INTO actividades_carrusels VALUES (null,'Reparto de medicinas','Repartir medicinas','Buitrago de Lozoya' ,'2023-04-21',"10:00","medicinas.jpg","2");
+INSERT INTO actividades_carrusels VALUES (null,'Apoyo en gestión','Gestionar','Madrid' ,'2023-04-21',"10:00","gestion.jpg","2");
+INSERT INTO actividades_carrusels VALUES (null,'Batidas de limpieza','Limpieza','Madrid' ,'2023-04-21',"12:00","limpieza.jpg","2");
+INSERT INTO actividades_carrusels VALUES (null,'Reparto de alimentos','Repartir alimentos','Madrid' ,'2023-04-21',"18:00","alimentos.jpg","2");

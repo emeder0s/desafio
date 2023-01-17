@@ -20,6 +20,8 @@ router.post("/new-request",request.new);
 router.post("/accept-request",request.acceptRequest);
 router.post("/reject-request",request.rejectRequest);
 router.get("/get-coordinator-requests",request.getRequestsByCoordinator);
+router.get("/get-requests-by-event/:id",request.getRequestsByEvent);
+
 
 
 //REQUEST 

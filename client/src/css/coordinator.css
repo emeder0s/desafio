@@ -81,7 +81,7 @@ input.seach-input {
     flex-direction: column;
     align-content: flex-end;
     align-items: flex-end;
-    margin-left: 62px !important;
+    width: 33%;
 }
 
 .event-title{
@@ -101,4 +101,10 @@ input.seach-input {
     color: #4b4b4b;
     font-size: 14px;
     font-weight: 500;
+}
+
+.react-icon{
+    width: 25px;
+    height: 25px;
+    margin-bottom: 8px;
 }

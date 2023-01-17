@@ -7,14 +7,12 @@ const registration = {
    * @param {json} req La petición
    * @param {json} res Objeto respuesta
    */
-  new: async (req, res) => {
-    try {
-        res.json(true)
-        console.log(ValidationError);
+  new: async (con,fk_id_actividad,fk_id_user) => {
+    try{
+      const registrationM = await registrationModel.create(con);
+      await registrationM.create({ fk_id_actividad, fk_id_user });
     }catch(e){
-        res.json(false);
-    }finally{
-        await connection.close(con);
+      console.log(e)
     }
   }
 }

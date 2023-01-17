@@ -54,7 +54,7 @@ const activity = {
       var results = await Promise.all(
         activities.map(async activity => {
           activity = activity.dataValues;
-          var requests = await request.getRequestsByEvent(activity.id, con);
+          var requests = await request.returnRequestsByEvent(activity.id, con);
           totalPending += requests.pendings.length;
           totalAccepted += requests.accepted.length;
           activity.requests = requests;
@@ -82,6 +82,17 @@ const activity = {
       res.json(false);
     }finally{
       await connection.close(con);
+    }
+  },
+
+  updateRegistrations: async (con,id) => {
+    try{
+      const activityM = await activityModel.create(con);
+      const activity = await activityM.findOne({where:{id}}); 
+      var registrations = parseInt(activity.dataValues.inscripciones) + 1;
+      await activityM.update({inscripciones:registrations},{where:{id}});
+    }catch(e){
+      console.log(e);
     }
   },
 

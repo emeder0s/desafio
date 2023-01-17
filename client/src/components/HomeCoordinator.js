@@ -2,7 +2,9 @@ import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import { HiOutlineLocationMarker } from "react-icons/hi";
 import { CiSearch } from "react-icons/ci";
-import ChartRequest from "./ChartRequest"
+import ChartRequest from "./ChartRequest";
+import logo from '../img/logo.png'
+import { MenuModal } from './MenuModal'
 import "../css/coordinator.css"
 
 
@@ -55,6 +57,10 @@ function HomeCoordinator() {
 
     return (
         <div className="page-content-coord">
+            <div className='divLoginCar'>
+                <img src={logo} className='imgLogin2' alt="Logo Cruz Roja" />
+                <div><MenuModal /></div>
+            </div>
             {coordinator ? 
                 <div>
                     <div className="search-input-container">
