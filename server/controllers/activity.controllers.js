@@ -11,10 +11,11 @@ const activity = {
    */
   newEvent: async (req, res) => {
     try {
-      const { titulo, descripcion } = req.body;
+      const { titulo,descripcion,municipio,fecha_ini,fecha_fin,hora_empezar,hora_terminar,image } = req.body;
       var con = await connection.open(); 
       const activityM = await activityModel.create(con); 
-      const activity = await activityM.create({ titulo, descripcion, categoria:"evento", coordinador:user.get_id_from_cookie(req)});
+      console.log(user.get_id_from_cookie(req));
+      const activity = await activityM.create({ titulo, descripcion, categoria:"voluntariado", coordinador:user.get_id_from_cookie(req),municipio,fecha_ini,fecha_fin,hora_empezar,hora_terminar,image});
       res.json(true);
     } catch (ValidationError) {
         console.log(ValidationError);

@@ -83,6 +83,7 @@ CREATE TABLE IF NOT EXISTS users(
         disponibilidad VARCHAR(60),
         horario VARCHAR(30),
         otras_habilidades VARCHAR(150),
+        image VARCHAR (100),
         
         PRIMARY KEY(id),
         FOREIGN KEY (tipo_doc) REFERENCES tipo_documentos(id)

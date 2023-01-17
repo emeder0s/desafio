@@ -59,7 +59,7 @@ function HomeCoordinator() {
                 <input id="search-input" className="seach-input" placeholder="Buscar" onKeyDown={searchEvents}></input>
             </div>
             <div className="coordinator-intro">
-                <div className="coordinator-img"></div>   
+                <div className="coordinator-img"><img className="coordinator-img" src={`/users/16.jpg`}></img></div>   
                 <div className="info">
                    <div className="coordinator-name">Elena Mederos Cebreros</div> 
                    <div className="pending-requests">{totalPendings} solicitudes pendientes</div> 
@@ -75,7 +75,7 @@ function HomeCoordinator() {
                         search[i] ? 
                         <Link to={`/solicitudes/evento/${btoa(event.id)}`} className="box-link" key={`link-${i}`}>
                             <div className="container-event" key={`container-event-${i}`}>
-                                <div className="event-img" key={`event-img-${i}`}></div>
+                                <div className="event-img" key={`event-img-${i}`}><img className="event-img" src={`/${event.image}`}></img></div>
                                 <div className="event-details" key={`event-details-${i}`}>
                                     <div className="event-title" key={`title-${i}`}>{event.titulo}</div>
                                     <div className="event-location" key={`localtion-${i}`}><HiOutlineLocationMarker/> {event.municipio}</div>
