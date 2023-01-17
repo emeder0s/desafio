@@ -2,6 +2,7 @@ const connection = require("../databases/sequelize");
 const activityModel = require("../models/activity.model");
 const activityCarrusel = require("../models/activity_carrusel.model")
 const user = require("./user.controllers");
+const request = require("./registration_request.controllers");
 
 const activity = {
   /**
@@ -11,11 +12,10 @@ const activity = {
    */
   newEvent: async (req, res) => {
     try {
-      const { titulo,descripcion,municipio,fecha_ini,fecha_fin,hora_empezar,hora_terminar,image } = req.body;
+      const { titulo,descripcion,municipio,fecha_ini,fecha_fin,hora_empezar,hora_terminar,plazas,image } = req.body;
       var con = await connection.open(); 
       const activityM = await activityModel.create(con); 
-      console.log(user.get_id_from_cookie(req));
-      const activity = await activityM.create({ titulo, descripcion, categoria:"voluntariado", coordinador:user.get_id_from_cookie(req),municipio,fecha_ini,fecha_fin,hora_empezar,hora_terminar,image});
+      const activity = await activityM.create({ titulo, descripcion, categoria:"voluntariado", coordinador:user.get_id_from_cookie(req),municipio,fecha_ini,fecha_fin,hora_empezar,hora_terminar,plazas,image});
       res.json(true);
     } catch (ValidationError) {
         console.log(ValidationError);
@@ -48,8 +48,20 @@ const activity = {
     try {
       var con = await connection.open();
       const activityM = await activityModel.create(con);
-      const activities = await activityM.findAll({ where: { coordinador: user.get_id_from_cookie(req) } })
-      res.json(activities);
+      const activities = await activityM.findAll({ where: { coordinador: user.get_id_from_cookie(req) } });
+      var totalPending = 0;
+      var totalAccepted = 0;
+      var results = await Promise.all(
+        activities.map(async activity => {
+          activity = activity.dataValues;
+          var requests = await request.getRequestsByEvent(activity.id, con);
+          totalPending += requests.pendings.length;
+          totalAccepted += requests.accepted.length;
+          activity.requests = requests;
+          return activity
+        })
+      );
+      res.json({results,totalPending,totalAccepted});
     } catch (ValidationError) {
         console.log(ValidationError);
       res.json(false);
@@ -57,7 +69,6 @@ const activity = {
       await connection.close(con);
     }
   },
-
 
 //Devuelve los 6 eventos que hay en el carrusel
   getEvents: async (req, res) => {

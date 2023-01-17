@@ -17,9 +17,11 @@ function HomeCoordinator() {
         fetch(`/get-coordinator-events`)
             .then((res) => res.json(res))
             .then(res => {
-                setEvents(res);
-                var results = res.map(() =>{return true})
-                setSearch(results);
+                setEvents(res.results);
+                setTotalPendings(res.totalPending);
+                settotalConfirmed(res.totalAccepted);
+                var re = res.results.map(() =>{return true})
+                setSearch(re);
             });
     }
 
@@ -46,19 +48,9 @@ function HomeCoordinator() {
             });
     }
 
-    const getRequests = () => {
-        fetch(`/get-coordinator-requests`)
-            .then((res) => res.json(res))
-            .then(res => {
-                setTotalPendings(res.pendings.length);
-                settotalConfirmed(res.accepted.length);
-            });
-    }
-
     useEffect(() => {
         getCoordinator();
         getEvents();
-        getRequests();
     }, [])
 
     return (
@@ -90,10 +82,9 @@ function HomeCoordinator() {
                                         <div className="event-details" key={`event-details-${i}`}>
                                             <div className="event-title" key={`title-${i}`}>{event.titulo}</div>
                                             <div className="event-location" key={`localtion-${i}`}><HiOutlineLocationMarker/> {event.municipio}</div>
-                                            {/* <div className="event-location" key={`location-${i}`}><HiOutlineLocationMarker/> La Hiruela</div> */}
-                                            <div key={`request-${i}`}>10 solicitudes| 8 confirmadas</div>
+                                            <div key={`request-${i}`}>{event.requests.pendings.length} solicitudes| {event.requests.accepted.length} confirmadas</div>
                                             <div key={`chart-request-container${i}`}>
-                                                <ChartRequest accepts="15" pending="3" total="30" key={`chart-request-${i}`}></ChartRequest>
+                                                {/* <ChartRequest accepts={event.requests.accepted.length} pending={event.requests.pendings.length} total={event.plazas} key={`chart-request-${i}`}></ChartRequest> */}
                                             </div>
                                         </div>
                                         <div className="event-datetime" key={`event-datetime-${i}`}>

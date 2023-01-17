@@ -32,6 +32,12 @@ eventModel = {
             hora_terminar: {
                 type: DataTypes.STRING,
             },
+            plazas: {
+                type: DataTypes.INTEGER,
+            },
+            inscripciones: {
+                type: DataTypes.INTEGER,
+            },
             image: {
                 type: DataTypes.STRING,
             }
