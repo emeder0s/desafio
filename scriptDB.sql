@@ -179,39 +179,12 @@ INSERT INTO comunidades_autonomas VALUES (null, 'La Rioja');
 INSERT INTO comunidades_autonomas VALUES (null, 'Ciudad Autónoma de Ceuta');
 INSERT INTO comunidades_autonomas VALUES (null, 'Ciudad Autónoma de Melilla'); 
 
-CREATE TABLE IF NOT EXISTS actividades(
-        id INT AUTO_INCREMENT,
-        titulo VARCHAR(100),
-        descripcion VARCHAR(1000),
-        localizacion VARCHAR(64),
-        categoria VARCHAR(12),
-        plazas INT,
-        inscripciones INT,
-        coordinador INT,
-        fecha_ini DATETIME,
-		fecha_fin DATETIME,
-        fk_id_modalidad INT,
-        fk_id_tematica INT,
-        fk_id_colectivo INT,
-        fk_id_tipo_actividad INT,
-        fk_id_comunidad_autonoma INT,
-        provincia VARCHAR(30),
-        municipio VARCHAR(30),
-        nombre_actividades VARCHAR(80),
-        
-        PRIMARY KEY(id),
-        FOREIGN KEY (coordinador) REFERENCES users(id),
-        FOREIGN KEY (fk_id_modalidad) REFERENCES modalidades(id),
-        FOREIGN KEY (fk_id_tematica) REFERENCES tematicas(id),
-        FOREIGN KEY (fk_id_colectivo) REFERENCES colectivos(id),
-        FOREIGN KEY (fk_id_tipo_actividad) REFERENCES tipos_actividades(id),
-        FOREIGN KEY (fk_id_comunidad_autonoma) REFERENCES comunidades_autonomas(id)
-); 
+
 
 CREATE TABLE IF NOT EXISTS eventos(
         id INT AUTO_INCREMENT,
         titulo VARCHAR(100),
-        descripcion VARCHAR(1000),
+        descripcion VARCHAR(1500),
         localizacion VARCHAR(64),
         categoria VARCHAR(12),
         plazas INT,
@@ -225,8 +198,10 @@ CREATE TABLE IF NOT EXISTS eventos(
         tematica VARCHAR(50),
         colectivo VARCHAR(60),
         municipio VARCHAR(30),
+        image VARCHAR (100),
         
-        PRIMARY KEY(id)
+        PRIMARY KEY(id),
+        FOREIGN KEY (coordinador) REFERENCES users(id)
 );
 
 CREATE TABLE IF NOT EXISTS valoraciones(
@@ -272,3 +247,22 @@ CREATE TABLE IF NOT EXISTS solicitudes_inscripciones(
         FOREIGN KEY (fk_id_user) REFERENCES users(id),
         FOREIGN KEY (fk_id_actividad) REFERENCES actividades(id)
 ); 
+
+CREATE TABLE IF NOT EXISTS actividades_carrusels(
+        id INT AUTO_INCREMENT,
+        titulo VARCHAR(100),
+        descripcion VARCHAR(1000),
+        localizacion VARCHAR(64),
+		fecha_ini DATETIME,
+        image VARCHAR(500),
+       /* categoria VARCHAR(12),
+       fecha_fin DATETIME*/
+        PRIMARY KEY(id)
+);
+
+INSERT INTO actividades_carrusels VALUES (null,'Medios de rescate','Rescate a necesitados','Rascafría' ,'2023-02-10',"rescate.jpg");
+INSERT INTO actividades_carrusels VALUES (null,'Actuación con menores','Ayuda a menores','Canencia' ,'2023-03-07',"menores.jpg");
+INSERT INTO actividades_carrusels VALUES (null,'Reparto de medicinas','Repartir medicinas','Buitrago de Lozoya' ,'2023-04-21',"medicinas.jpg");
+INSERT INTO actividades_carrusels VALUES (null,'Apoyo en gestión','Gestionar','Madrid' ,'2023-04-21',"gestion.jpg");
+INSERT INTO actividades_carrusels VALUES (null,'Batidas de limpieza','Limpieza','Madrid' ,'2023-04-21',"limpieza.jpg");
+INSERT INTO actividades_carrusels VALUES (null,'Reparto de alimentos','Repartir alimentos','Madrid' ,'2023-04-21',"alimentos.jpg");
