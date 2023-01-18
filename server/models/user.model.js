@@ -11,7 +11,7 @@ userModel = {
             user_rol: {
                 type: DataTypes.STRING,
             },
-            contraseña: {
+            password: {
                 type: DataTypes.STRING,
             },
             nombre: {
