@@ -13,14 +13,20 @@ function EventRequests() {
     var { id } = useParams();
     id = atob(id);
     const [titleEvent,setTitleEvent] = useState();
-    const [registrations,setRegistrations] = useState(16);
     const [coordinator,setCoordinator] = useState();
     const [requests,setRequests] = useState();
     const [totalPendings,setTotalPendings] = useState(0);
     const [totalConfirmed,setTotalConfirmed] = useState(0);
     var [search,setSearch] = useState();
 
-
+    const getEvent = () => {
+        fetch(`/get-event/${id}`)
+            .then((res) => res.json(res))
+            .then(res => {
+                console.log(res);
+                setTitleEvent(res.titulo);
+         });
+    }
 
     const getRequests = () => {
         fetch(`/get-requests-by-event/${id}`)
@@ -52,6 +58,7 @@ function EventRequests() {
     useEffect(() => {
         getCoordinator();
         getTotalNumberRequest();
+        getEvent();
         getRequests();
     }, []);
 
@@ -151,7 +158,7 @@ function EventRequests() {
                 </div>
             :"" }
             <div className="new-event-container">+<a className="new-event" href="">Filtrar por nombre</a></div>
-            <p className='pTitleEvent'>{titleEvent}</p>
+            <p className='title'>{titleEvent}</p>
             {requests ?  
                 requests.map((request, i) => {
                     return(
@@ -162,7 +169,7 @@ function EventRequests() {
                                 <div className="event-title" key={`title-${i}`}>{request.user.nombre} {request.user.apellido_1} {request.user.apellido_2}</div>
                                 <div className="event-location" key={`localtion-${i}`}><HiOutlineLocationMarker/> {request.user.localidad}</div>
                                 <div key={`chart-request-container${i}`}>
-                                    <ChartPercent  total={registrations} key={`chart-request-${i}`}></ChartPercent>
+                                    <ChartPercent key={`chart-request-${i}`}></ChartPercent>
                                 </div>
                             </div>
                             <div className="event-datetime" key={`event-datetime-${i}`}>

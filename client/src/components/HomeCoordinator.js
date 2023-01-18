@@ -64,7 +64,7 @@ function HomeCoordinator() {
         <div className="page-content-coord">
             <div className='divLoginCar'>
                 <img src={logo} className='imgLogin2' alt="Logo Cruz Roja" />
-                <div><MenuModal /></div>
+                <div><MenuModal pendings={totalPendings}/></div>
             </div>
             {coordinator ? 
                 <div>
@@ -82,7 +82,7 @@ function HomeCoordinator() {
                     </div>
                     <div>
                     <div className="new-event-container"><a className="new-event" href="/nuevo-evento">Nuevo Evento</a></div>
-                    <p className='pTitleEvent'>Eventos publicados</p>
+                    <p className='title'>Eventos publicados</p>
                         {events ?
                         events.map((event, i) => {
                             return(

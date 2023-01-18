@@ -112,3 +112,13 @@ input.seach-input {
 .event-details {
     width:50%;
 }
+
+.title {
+
+    margin-top: 38px;
+    font-size: 18px;
+    font-weight: bold;
+    margin-bottom: 10px;
+    color: black;
+   width: 300px;
+}

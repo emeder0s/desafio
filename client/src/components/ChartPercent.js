@@ -1,9 +1,7 @@
 import React, { useEffect, useState } from "react";
 import "../css/chart-request.css"
 
-function ChartRequest(props) {
-
-    const total = props.total;
+function ChartRequest() {
 
     const getRandomInt = (min,max) => {
         return Math.round(Math.random() * (max - min) + min)
