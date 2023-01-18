@@ -23,8 +23,6 @@ export const MenuModal = (props) => {
         <div>
             {props.pendings ? <img src={bellAlert} className='imgMenuModal2' /> : <img src={bell} className='imgMenuModal2' />}
             <a href="#openModal" className='aModal'> <img src={logMenu} className='imgMenuModal2' /></a>
-
-            <AiOutlineLogout className='logout-icon' onClick={logout}/>
             <div id="openModal" class="modalDialog">
                 <div className='modalEventsTotal'>
                     <a href="#close" title="Close" class="close">X</a>
@@ -47,6 +45,11 @@ export const MenuModal = (props) => {
                         <p> <img src={alerta} className='imgMenuModal' /></p>
                         <h3 className='pModal'>Reportar evento</h3>
                     </div>
+                    <div className='divPmodal'>
+                        <p><AiOutlineLogout className='logout-icon imgMenuModal' onClick={logout}/></p>
+                        <h3 className='pModal'>Logout</h3>
+                    </div>
+                    
                 </div>
             </div>
         </div>
