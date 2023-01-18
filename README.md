@@ -5,4 +5,4 @@ El control del versiones se ha llevado durante el proyecto de la siguiente maner
 - Desde la rama fullstack, se crearon ramas por componente del equipo (sergio/elena). 
 - Cada componente ha ido trabajando en su rama las funcionalidades adjudicadas. 
 - Cada mañana se realizaba un merge de ambas ramas con la rama fullstack. 
-- Adicionalmente, se han hecho merge cada vez que se ha considerado necesario. Por ejemplo, al tener funcionalidades compartidas, o al terminar una. 
+- Adicionalmente, se han hecho merge cada vez que se ha considerado necesario. Por ejemplo, al tener funcionalidades compartidas o al terminar una.
