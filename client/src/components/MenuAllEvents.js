@@ -12,7 +12,7 @@ export const MenuAllEvents = () => {
         fetch("/get-events")
             .then(response => response.json(response))
             .then(response => {
-                console.log(response)
+               
                 setAllEvents(response)
 
                 // setEvents(response)
@@ -27,9 +27,9 @@ export const MenuAllEvents = () => {
         <div>
             <a href="#openModal2" className='aModal2'>Ver todos</a>
 
-            <div id="openModal2" class="modalDialog">
+            <div id="openModal2" className="modalDialog">
                 <div className='modalEventsTotal'>
-                    <a href="#close" title="Close" class="close">X</a>
+                    <a href="#close" title="Close" className="close">X</a>
 
                     {allEvents ? allEvents.map((everyEvent, i) => (
                     

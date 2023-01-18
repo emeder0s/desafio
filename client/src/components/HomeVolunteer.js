@@ -1,12 +1,14 @@
 import React, { useState, useEffect } from 'react'
 import { motion } from 'framer-motion'
 import logo from '../img/logo.png'
+import campana from '../img/campana.png'
+import punto from '../img/punto.png'
 import MyCalendar from './MyCalendar'
 import { Footer } from './layout/Footer'
-import { useParams, useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import { MenuAllEvents } from './MenuAllEvents'
 import { MenuModal } from './MenuModal'
-import { NavLink } from 'react-router-dom'
+
 
 
 
@@ -14,7 +16,7 @@ export const HomeVolunteer = () => {
 
     const [events, setEvents] = useState()
     const [calendar, setCalendar] = useState(true)
-    const [formations, setFormations] = useState(true)
+    const [formations, setFormations] = useState()
     const navigate = useNavigate();
 
 
@@ -24,7 +26,6 @@ export const HomeVolunteer = () => {
         fetch("/get-events")
             .then(response => response.json(response))
             .then(response => {
-                console.log(response)
                 setEvents(response)
 
                 // setEvents(response)
@@ -34,21 +35,40 @@ export const HomeVolunteer = () => {
 
     }, [])
 
-    function goToPag(id) {
-        // window.location = id
-        navigate(id);
-        
+
+
+    const getFormation = () => {
+        fetch("/get-formations")
+            .then(response => response.json(response))
+            .then(response => {
+                setFormations(response)
+
+            })
+
     }
 
 
+    useEffect(() => {
+        getFormation();
+
+    }, [])
+
+
+
+
+    function goToPag(id) {
+        // window.location = id
+        navigate(id);
+
+    }
 
 
     return (
         <div>
 
             <div className='divLoginCar'>
-                <img src={logo} className='imgLogin2' alt="Logo Cruz Roja" />
-
+                <img src={logo} className='imgLogin3' alt="Logo Cruz Roja" />
+                <img src={campana} className='imgLogin4' />
 
                 <div><MenuModal /></div>
             </div>
@@ -105,7 +125,7 @@ export const HomeVolunteer = () => {
                         <motion.div className='imageCarrusel'>
 
                             <div key={i} className="boxEventAll">
-                            <button onClick={() => goToPag(`/evento/${everyEvent.id}`)} className="butStart">
+                                <button onClick={() => goToPag(`/evento/${everyEvent.id}`)} className="butStart">
                                     <img src={`/${everyEvent.image}`} className="imgEventAll" alt="" />
                                 </button>
                                 <div className='divEventWhite'>
@@ -130,24 +150,21 @@ export const HomeVolunteer = () => {
                     <p className='pPesEvent'><MenuAllEvents /></p>
 
                 </div>
-                {/* 
-                <div>
+            </div>
 
-                    {formations ? formations.map((formation, i) => (
+            <div className='boxDivForma'>
+                {formations ? formations.map((formation, i) => (
 
-                        <div key={i}>
-
-                            <div>
-                                <p>{formation.nombreFormacion}</p>
-                            </div>
-
+             
+                        <div key={i} className="divFormations">
+                            <p className='everyFormation'><img src={punto} className="imgPunto" /> {formation.nombre} </p>
                         </div>
 
-                    )) : ""}
 
-                </div> */}
+                )) : "no hay"}
+
             </div>
-        </div>
+        </div >
     )
 
 
