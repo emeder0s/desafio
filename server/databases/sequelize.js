@@ -1,6 +1,6 @@
 require('dotenv').config();
 const Sequelize = require('sequelize');
-const fs = require('fs');
+// const fs = require('fs');
 
 // const serverCa = fs.readFile(`./DigiCertGlobalRootCA.crt.pem`, 'utf8', (err, data) => {
 //     if (err) {

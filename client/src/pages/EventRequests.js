@@ -8,7 +8,9 @@ import ChartPercent from "../components/ChartPercent";
 import logo from '../img/logo.png';
 import { Footer } from "../components/layout/Footer";
 import '../css/coordinator.css'
+import {ButtonBack} from '../components/ButtonBack'
 import { MenuModalCoordinator } from "../components/MenuModalCoordinator";
+
 
 function EventRequests() {
     var { id } = useParams();
@@ -139,6 +141,7 @@ function EventRequests() {
     return (
         <div>
             <div className='divLoginCar'>
+            <p className="buttonBack"><ButtonBack /></p>
                 <img src={logo} className='imgLogin2' alt="Logo Cruz Roja" />
                 <div><MenuModalCoordinator pendings={totalPendings}/></div>
             </div> 

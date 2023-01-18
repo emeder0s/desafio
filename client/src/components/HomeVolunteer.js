@@ -10,6 +10,8 @@ import { MenuAllEvents } from './MenuAllEvents'
 import { MenuModal } from './MenuModal'
 import { MenuFormations } from './MenuFormations'
 import { MenuEventsRecomended } from './MenuEventsRecomended'
+import { BsDot } from "react-icons/bs";
+
 
 
 
@@ -20,6 +22,7 @@ export const HomeVolunteer = () => {
     const [calendar, setCalendar] = useState(true)
     const [formations, setFormations] = useState()
     const navigate = useNavigate();
+
 
 
 
@@ -65,12 +68,14 @@ export const HomeVolunteer = () => {
     }
 
 
+    const eventosLocal = JSON.parse(localStorage.getItem('eventos'))
+
+
     return (
         <div>
 
             <div className='divLoginCar'>
                 <img src={logo} className='imgLogin3' alt="Logo Cruz Roja" />
-                <img src={campana} className='imgLogin4' />
 
                 <div><MenuModal /></div>
             </div>
@@ -112,6 +117,24 @@ export const HomeVolunteer = () => {
                     <MyCalendar />
                 </div>
                 : ""}
+            <div className='divPuntosEventos'>
+                <p className='iconPunto1'><BsDot size={30} /></p>
+                <p className='pConfirmens'>Confirmados</p>
+                <p className='iconPunto2'><BsDot size={30} /></p>
+                <p className='pConfirmens'>Pendientes</p>
+            </div>
+            {localStorage && <div className='divEventVisu'>
+             
+                <p className='infoEventP'>| {eventosLocal.fecha_ini}</p>
+               
+                <p className='iconPunto'><BsDot size={30}  /></p>
+                <p className='infoEventP'>{eventosLocal.titulo}</p>
+                <p className='iconPunto'><BsDot size={30} /></p>
+                <p className='infoEventP'>{eventosLocal.hora_empezar}h</p>
+
+            </div>}
+
+
 
             <motion.div className='slider-container'>
                 <div className='divPesEvent'>
@@ -157,10 +180,10 @@ export const HomeVolunteer = () => {
             <div className='boxDivForma'>
                 {formations ? formations.map((formation, i) => (
 
-             
-                        <div key={i} className="divFormations">
-                            <p className='everyFormation'><img src={punto} className="imgPunto" /> {formation.nombre} </p>
-                        </div>
+
+                    <div key={i} className="divFormations">
+                        <p className='everyFormation'><img src={punto} className="imgPunto" /> {formation.nombre} </p>
+                    </div>
 
 
                 )) : "no hay"}
