@@ -19,7 +19,6 @@ function HomeCoordinator() {
         fetch(`/get-coordinator-events`)
             .then((res) => res.json(res))
             .then(res => {
-                console.log(res.results)
                 setEvents(res.results);
                 setTotalPendings(res.totalPending);
                 settotalConfirmed(res.totalAccepted);

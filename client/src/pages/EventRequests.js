@@ -3,6 +3,7 @@ import { HiOutlineLocationMarker } from "react-icons/hi";
 import { AiOutlineCheckCircle, AiOutlineCloseCircle } from "react-icons/ai";
 import { CiSearch } from "react-icons/ci";
 import { useParams } from "react-router-dom";
+import ChartPercent from "../components/ChartPercent";
 import logo from '../img/logo.png';
 import { MenuModal } from '../components/MenuModal';
 import { Footer } from "../components/layout/Footer";
@@ -12,13 +13,14 @@ function EventRequests() {
     var { id } = useParams();
     id = atob(id);
     const [titleEvent,setTitleEvent] = useState();
+    const [registrations,setRegistrations] = useState(16);
     const [coordinator,setCoordinator] = useState();
     const [requests,setRequests] = useState();
     const [totalPendings,setTotalPendings] = useState(0);
     const [totalConfirmed,setTotalConfirmed] = useState(0);
     var [search,setSearch] = useState();
 
-    
+
 
     const getRequests = () => {
         fetch(`/get-requests-by-event/${id}`)
@@ -160,7 +162,7 @@ function EventRequests() {
                                 <div className="event-title" key={`title-${i}`}>{request.user.nombre} {request.user.apellido_1} {request.user.apellido_2}</div>
                                 <div className="event-location" key={`localtion-${i}`}><HiOutlineLocationMarker/> {request.user.localidad}</div>
                                 <div key={`chart-request-container${i}`}>
-                                    {/* <ChartRequest accepts={event.requests.accepted.length} pending={event.requests.pendings.length} total={event.plazas} key={`chart-request-${i}`}></ChartRequest> */}
+                                    <ChartPercent  total={registrations} key={`chart-request-${i}`}></ChartPercent>
                                 </div>
                             </div>
                             <div className="event-datetime" key={`event-datetime-${i}`}>
