@@ -14,9 +14,9 @@ export const MenuModal = () => {
         <div>
             <a href="#openModal" className='aModal'> <img src={logMenu} className='imgMenuModal2' /></a>
 
-            <div id="openModal" class="modalDialog">
+            <div id="openModal" className="modalDialog">
                 <div className='modalEventsTotal'>
-                    <a href="#close" title="Close" class="close">X</a>
+                    <a href="#close" title="Close" className="close">X</a>
 
 
                     <h2 className='pModal2'>Selecciona una acción </h2>

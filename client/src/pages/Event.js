@@ -20,7 +20,9 @@ function Event() {
         fetch(`/get-event/${id}`)
             .then((res) => res.json(res))
             .then(res => {
+                console.log(res)
                 setEvent(res);
+                getCoordinator(res.coordinador);
             });
     }
 
@@ -34,42 +36,18 @@ function Event() {
 
 
     //Traemos los datos del coordinador
-    const getCoordinator = () => {
-        fetch(`/get-logued-coordinator/${id}`)
+    const getCoordinator = (coordinator) => {
+        console.log(coordinator)
+        fetch(`/get-logued-coordinator/${coordinator}`)
             .then((res) => res.json(res))
             .then(res => {
+                console.log(res)
                 setCoordinator(res);
             });
+
     }
 
-    useEffect(() => {
-        getCoordinator();
-
-    }, [])
-
-
-
-    // const enrollTo = async () => {
-    //     let data = {
-    //         method: 'POST',
-    //         body: JSON.stringify({ fk_id_actividad: id }),
-    //         mode: "cors",
-    //         headers: {
-    //             "Access-Control-Allow-Origin": "*",
-    //             "Content-type": "application/json",
-    //         },
-    //     };
-    //     await fetch("/new-request", data)
-    //         .then((res) => res.json())
-    //         .then((res) => {
-    //             console.log(res);
-    //         })
-    // }
-
-
-
-
-
+    
     return (
         <div className="page-content">
 
@@ -119,7 +97,7 @@ function Event() {
                     <h2 className="pCarruselEvent2">¿Quién es nuestro coordinador?</h2>
                     {coordinator &&
                         <div className="boxCoordinatorInfo2">
-                            {/* <img className="coordinator-image" src={`/users/${coordinator.image}`}></img> */}
+                    
                             <img className="coordinator-image2" src={`/users/${coordinator.image}`}></img>
                             <p className='pCarruselEvent4'>{coordinator.nombre} {coordinator.apellido_1} {coordinator.apellido_2} </p>
                             <p className='pCarruselEvent5'>250 eventos gestionados</p>

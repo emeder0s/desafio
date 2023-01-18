@@ -31,9 +31,9 @@ export const MenuConfirmEvent = () => {
             </div>
 
 
-            <div id="openModal2" class="modalDialog">
+            <div id="openModal2" className="modalDialog">
                 <div className='modalEventsTotal2'>
-                    <a href="#close" title="Close" class="close">X</a>
+                    <a href="#close" title="Close" className="close">X</a>
                     <div className='divModalAsistirEvento'>
                     <p className='pAsistir'>Asistir al evento</p>
                     <p className='pSeguro'>¿Estás seguro de que deseas asistir a este evento recomendado?</p>

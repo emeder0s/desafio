@@ -118,6 +118,7 @@ const user = {
     try {
       var con = await connection.open();
       const { id } = req.params;
+      console.log(id)
       const userM = await userModel.create(con);
       const user = await userM.findOne({ where: { id } });
       res.json({ nombre: user.dataValues.nombre, apellido_1: user.dataValues.apellido_1, apellido_2: user.dataValues.apellido_2, image: user.dataValues.image });
@@ -220,7 +221,7 @@ const user = {
   //     await connection.close(con);
   //   }
   // },
-=======
+
   returnUser: async (id,con) => {
     const userM = await userModel.create(con);
     const user = await userM.findOne({ where: { id } });
