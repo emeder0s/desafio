@@ -9,6 +9,7 @@ router.post("/register", user.new); //Añade un user
 router.post("/login-user", user.login); //Login
 router.get("/get-role", user.getRole);
 router.get("/get-logued-coordinator", user.getCoordinator);
+router.get("/get-logued-coordinator/:id", user.getCoordinatorId);
 // router.get("/logout", user.logout); //Logout
 // router.post("/edit-user", user.edit); //Modifica un user
 // router.post("/edit-user-password", user.editPassword); //Modifica la contrañsea de un usuario
