@@ -3,12 +3,14 @@ const user = require("../controllers/user.controllers");
 const request = require("../controllers/registration_request.controllers");
 const registration = require("../controllers/registration.controllers");
 const activity = require("../controllers/activity.controllers");
+const formation = require("../controllers/formations.controllers")
 
 //USER
 router.post("/register", user.new); //Añade un user
 router.post("/login-user", user.login); //Login
 router.get("/get-role", user.getRole);
 router.get("/get-logued-coordinator", user.getCoordinator);
+router.get("/get-logued-coordinator/:id", user.getCoordinatorId);
 // router.get("/logout", user.logout); //Logout
 // router.post("/edit-user", user.edit); //Modifica un user
 // router.post("/edit-user-password", user.editPassword); //Modifica la contrañsea de un usuario
@@ -37,5 +39,8 @@ router.post("/save-favorite",activity.saveFavorite);
 router.delete("/delete-favorite",activity.deleteFavorite);
 router.post("/update-registrations",activity.updateRegistrations);
 
+
+//FORMATIONS
+router.get("/get-formations",formation.getFormations);
 
 module.exports = router;
