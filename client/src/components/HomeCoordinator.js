@@ -1,10 +1,11 @@
 import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import { HiOutlineLocationMarker } from "react-icons/hi";
-import { CiSearch } from "react-icons/ci";
+import { AiOutlineDown } from "react-icons/ai";
+import { CiSearch, CiCalendar } from "react-icons/ci";
 import ChartRequest from "./ChartRequest";
 import logo from '../img/logo.png'
-import { MenuModal } from './MenuModal'
+import { MenuModalCoordinator } from './MenuModalCoordinator'
 import "../css/coordinator.css"
 
 
@@ -64,7 +65,7 @@ function HomeCoordinator() {
         <div className="page-content-coord">
             <div className='divLoginCar'>
                 <img src={logo} className='imgLogin2' alt="Logo Cruz Roja" />
-                <div><MenuModal pendings={totalPendings}/></div>
+                <div><MenuModalCoordinator pendings={totalPendings}/></div>
             </div>
             {coordinator ? 
                 <div>
@@ -81,13 +82,13 @@ function HomeCoordinator() {
                         </div>
                     </div>
                     <div>
-                    <div className="new-event-container"><a className="new-event" href="/nuevo-evento">Nuevo Evento</a></div>
+                    <div className="new-event-container">+<a className="new-event" href="">Filtrar por eventos publicados</a><AiOutlineDown color={"#4b4b4b"}/><CiCalendar color={"#4b4b4b"} className="icon-calendar"/></div>
                     <p className='title'>Eventos publicados</p>
                         {events ?
                         events.map((event, i) => {
                             return(
                                 search[i] ? 
-                                <Link to={`/solicitudes/evento/${btoa(event.id)}`} className="box-link" key={`link-${i}`}>
+                                // <Link to={`/solicitudes/evento/${btoa(event.id)}`} className="box-link" key={`link-${i}`}>
                                     <div className="container-event" key={`container-event-${i}`}>
                                         <div className="event-img" key={`event-img-${i}`}><img className="event-image" src={`/${event.image}`}></img></div>
                                         <div className="event-details" key={`event-details-${i}`}>
@@ -101,9 +102,14 @@ function HomeCoordinator() {
                                         <div className="event-datetime" key={`event-datetime-${i}`}>
                                             <div key={`date-${i}`}>{formatDate(event.fecha_ini)}</div>
                                             <div key={`time-${i}`}>{event.hora_empezar}h</div>
+                                            <div>
+                                             <Link to={`/solicitudes/evento/${btoa(event.id)}`} className="box-link" key={`link-${i}`}>
+                                                <div className="requests-pending" key={`requests-pending-${i}`}>{event.requests.pendings.length}</div>
+                                            </Link>
+                                            </div>
                                         </div>
                                     </div>
-                                </Link>
+                                //{/* </Link> */}
                                 : ""
                             )})
                         :""}

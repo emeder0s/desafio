@@ -1,14 +1,16 @@
 import React, { useEffect, useState } from "react";
 import { HiOutlineLocationMarker } from "react-icons/hi";
+import { AiOutlineDown } from "react-icons/ai";
+import { CiSearch, CiCalendar } from "react-icons/ci";
 import { AiOutlineCheckCircle, AiOutlineCloseCircle } from "react-icons/ai";
-import { CiSearch } from "react-icons/ci";
 import { useParams } from "react-router-dom";
 import ChartPercent from "../components/ChartPercent";
 import logo from '../img/logo.png';
-import { MenuModal } from '../components/MenuModal';
 import { Footer } from "../components/layout/Footer";
 import '../css/coordinator.css'
 import {ButtonBack} from '../components/ButtonBack'
+import { MenuModalCoordinator } from "../components/MenuModalCoordinator";
+
 
 function EventRequests() {
     var { id } = useParams();
@@ -24,7 +26,6 @@ function EventRequests() {
         fetch(`/get-event/${id}`)
             .then((res) => res.json(res))
             .then(res => {
-                console.log(res);
                 setTitleEvent(res.titulo);
          });
     }
@@ -142,7 +143,7 @@ function EventRequests() {
             <div className='divLoginCar'>
             <p className="buttonBack"><ButtonBack /></p>
                 <img src={logo} className='imgLogin2' alt="Logo Cruz Roja" />
-                <div><MenuModal /></div>
+                <div><MenuModalCoordinator pendings={totalPendings}/></div>
             </div> 
            <div className="page-content-coord">
            <div className="search-input-container">
@@ -159,7 +160,7 @@ function EventRequests() {
                     </div>
                 </div>
             :"" }
-            <div className="new-event-container">+<a className="new-event" href="">Filtrar por nombre</a></div>
+            <div className="new-event-container">+<a className="new-event" href="">Filtrar por nombre</a><AiOutlineDown color={"#4b4b4b"}/><CiCalendar className="icon-calendar" color={"#4b4b4b"}/></div>
             <p className='title'>{titleEvent}</p>
             {requests ?  
                 requests.map((request, i) => {

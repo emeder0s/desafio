@@ -42,7 +42,7 @@ export const FormLogin = () => {
             if (validation){
                 let loginData = {
                     num_doc: e.target.docUser.value,
-                    contraseña: e.target.passwordUser.value,
+                    password: e.target.passwordUser.value,
                 }
 
                 let Metadatos = {

@@ -13,14 +13,14 @@ const user = {
    */
   new: async (req, res) => {
     try {
-      const { user_rol, nombre, apellido_1, apellido_2, fecha_nac, tipo_doc, num_doc, contraseña } = req.body;
-      const pass_hash = await bcyptjs.hash(contraseña, 8);
+      const { user_rol, nombre, apellido_1, apellido_2, fecha_nac, tipo_doc, num_doc, password } = req.body;
+      const pass_hash = await bcyptjs.hash(password, 8);
       // ------ PASOS PARA LA INSERCIÓN EN LA DB
       var con = await connection.open(); //abrir la db
       const typeDocM = await typeDocModel.create(con);
       const typeDoc = await typeDocM.findOne({ where: { tipo_documento_ext: tipo_doc } });
       const userM = await userModel.create(con); //creación de modelo
-      const user = await userM.create({ user_rol, nombre, apellido_1, apellido_2, fecha_nac, tipo_doc: typeDoc.dataValues.id, num_doc, contraseña: pass_hash }); // la inserción del objeto en la db
+      const user = await userM.create({ user_rol, nombre, apellido_1, apellido_2, fecha_nac, tipo_doc: typeDoc.dataValues.id, num_doc, password: pass_hash }); // la inserción del objeto en la db
       //-------
       const infoJwt = jwt.sign({ id: user.dataValues.id, nombre: user.dataValues.nombre }, process.env.SECRET_KEY);
       res.json({ validation: true, "jwt": infoJwt, user: { nombre: user.dataValues.nombre } });
@@ -70,13 +70,13 @@ const user = {
   login: async (req, res) => {
     try {
       var con = await connection.open();
-      const { num_doc, contraseña } = req.body;
+      const { num_doc, password } = req.body;
       const userM = await userModel.create(con);
       const user = await userM.findOne({ where: { num_doc } });
 
       if (user) {
-        let hashSaved = user.dataValues.contraseña;
-        let compare = bcyptjs.compareSync(contraseña, hashSaved);
+        let hashSaved = user.dataValues.password;
+        let compare = bcyptjs.compareSync(password, hashSaved);
         const infoJwt = jwt.sign({ id: user.dataValues.id, nombre: user.dataValues.nombre }, process.env.SECRET_KEY);
         if (compare) {
           res.cookie("session", infoJwt)
