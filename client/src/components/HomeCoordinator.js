@@ -4,7 +4,7 @@ import { HiOutlineLocationMarker } from "react-icons/hi";
 import { CiSearch } from "react-icons/ci";
 import ChartRequest from "./ChartRequest";
 import logo from '../img/logo.png'
-import { MenuModal } from './MenuModal'
+import { MenuModalCoordinator } from './MenuModalCoordinator'
 import "../css/coordinator.css"
 
 
@@ -64,7 +64,7 @@ function HomeCoordinator() {
         <div className="page-content-coord">
             <div className='divLoginCar'>
                 <img src={logo} className='imgLogin2' alt="Logo Cruz Roja" />
-                <div><MenuModal pendings={totalPendings}/></div>
+                <div><MenuModalCoordinator pendings={totalPendings}/></div>
             </div>
             {coordinator ? 
                 <div>
@@ -81,7 +81,7 @@ function HomeCoordinator() {
                         </div>
                     </div>
                     <div>
-                    <div className="new-event-container"><a className="new-event" href="/nuevo-evento">Nuevo Evento</a></div>
+                    <div className="new-event-container"><a className="new-event" href=""></a></div>
                     <p className='title'>Eventos publicados</p>
                         {events ?
                         events.map((event, i) => {

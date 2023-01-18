@@ -5,9 +5,9 @@ import { CiSearch } from "react-icons/ci";
 import { useParams } from "react-router-dom";
 import ChartPercent from "../components/ChartPercent";
 import logo from '../img/logo.png';
-import { MenuModal } from '../components/MenuModal';
 import { Footer } from "../components/layout/Footer";
 import '../css/coordinator.css'
+import { MenuModalCoordinator } from "../components/MenuModalCoordinator";
 
 function EventRequests() {
     var { id } = useParams();
@@ -140,7 +140,7 @@ function EventRequests() {
         <div>
             <div className='divLoginCar'>
                 <img src={logo} className='imgLogin2' alt="Logo Cruz Roja" />
-                <div><MenuModal /></div>
+                <div><MenuModalCoordinator pendings={totalPendings}/></div>
             </div> 
            <div className="page-content-coord">
            <div className="search-input-container">
