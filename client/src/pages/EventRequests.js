@@ -3,6 +3,7 @@ import { HiOutlineLocationMarker } from "react-icons/hi";
 import { AiOutlineCheckCircle, AiOutlineCloseCircle } from "react-icons/ai";
 import { CiSearch } from "react-icons/ci";
 import { useParams } from "react-router-dom";
+import ChartPercent from "../components/ChartPercent";
 import logo from '../img/logo.png';
 import { MenuModal } from '../components/MenuModal';
 import { Footer } from "../components/layout/Footer";
@@ -17,6 +18,15 @@ function EventRequests() {
     const [totalPendings,setTotalPendings] = useState(0);
     const [totalConfirmed,setTotalConfirmed] = useState(0);
     var [search,setSearch] = useState();
+
+    const getEvent = () => {
+        fetch(`/get-event/${id}`)
+            .then((res) => res.json(res))
+            .then(res => {
+                console.log(res);
+                setTitleEvent(res.titulo);
+         });
+    }
 
     const getRequests = () => {
         fetch(`/get-requests-by-event/${id}`)
@@ -48,6 +58,7 @@ function EventRequests() {
     useEffect(() => {
         getCoordinator();
         getTotalNumberRequest();
+        getEvent();
         getRequests();
     }, []);
 
@@ -147,7 +158,7 @@ function EventRequests() {
                 </div>
             :"" }
             <div className="new-event-container">+<a className="new-event" href="">Filtrar por nombre</a></div>
-            <p className='pTitleEvent'>{titleEvent}</p>
+            <p className='title'>{titleEvent}</p>
             {requests ?  
                 requests.map((request, i) => {
                     return(
@@ -158,7 +169,7 @@ function EventRequests() {
                                 <div className="event-title" key={`title-${i}`}>{request.user.nombre} {request.user.apellido_1} {request.user.apellido_2}</div>
                                 <div className="event-location" key={`localtion-${i}`}><HiOutlineLocationMarker/> {request.user.localidad}</div>
                                 <div key={`chart-request-container${i}`}>
-                                    {/* <ChartRequest accepts={event.requests.accepted.length} pending={event.requests.pendings.length} total={event.plazas} key={`chart-request-${i}`}></ChartRequest> */}
+                                    <ChartPercent key={`chart-request-${i}`}></ChartPercent>
                                 </div>
                             </div>
                             <div className="event-datetime" key={`event-datetime-${i}`}>

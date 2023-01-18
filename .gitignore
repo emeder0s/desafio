@@ -40,6 +40,7 @@ build/Release
 # Dependency directories
 node_modules/
 package-lock.json
+DigiCertGlobalRootCA.crt.pem
 jspm_packages/
 
 .env
@@ -107,4 +108,5 @@ dist
 .tern-port
 
 server/package-lock.json
+server/DigiCertGlobalRootCA.crt.pem
 

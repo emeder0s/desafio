@@ -55,11 +55,16 @@ function HomeCoordinator() {
         getEvents();
     }, [])
 
+    const formatDate = (d) => {
+        var date = d.split("-");
+        return `${date[2]}/${date[1]}/${date[0]}`;
+    }
+
     return (
         <div className="page-content-coord">
             <div className='divLoginCar'>
                 <img src={logo} className='imgLogin2' alt="Logo Cruz Roja" />
-                <div><MenuModal /></div>
+                <div><MenuModal pendings={totalPendings}/></div>
             </div>
             {coordinator ? 
                 <div>
@@ -77,7 +82,7 @@ function HomeCoordinator() {
                     </div>
                     <div>
                     <div className="new-event-container"><a className="new-event" href="/nuevo-evento">Nuevo Evento</a></div>
-                    <p className='pTitleEvent'>Eventos publicados</p>
+                    <p className='title'>Eventos publicados</p>
                         {events ?
                         events.map((event, i) => {
                             return(
@@ -94,8 +99,8 @@ function HomeCoordinator() {
                                             </div>
                                         </div>
                                         <div className="event-datetime" key={`event-datetime-${i}`}>
-                                            <div key={`date-${i}`}>20/03/23</div>
-                                            <div key={`time-${i}`}>18h</div>
+                                            <div key={`date-${i}`}>{formatDate(event.fecha_ini)}</div>
+                                            <div key={`time-${i}`}>{event.hora_empezar}h</div>
                                         </div>
                                     </div>
                                 </Link>
