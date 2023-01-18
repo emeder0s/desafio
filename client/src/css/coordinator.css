@@ -134,3 +134,12 @@ input.seach-input {
     margin-top: -5px;
     margin-left: 5px;
 }
+
+.requests-pending {
+    padding: 3px 27px;
+    color: white;
+    background: #f36a72;
+    margin-top: 8px !important;
+    border-radius: 10px;
+    font-size: 16px;
+}

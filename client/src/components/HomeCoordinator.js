@@ -88,7 +88,7 @@ function HomeCoordinator() {
                         events.map((event, i) => {
                             return(
                                 search[i] ? 
-                                <Link to={`/solicitudes/evento/${btoa(event.id)}`} className="box-link" key={`link-${i}`}>
+                                // <Link to={`/solicitudes/evento/${btoa(event.id)}`} className="box-link" key={`link-${i}`}>
                                     <div className="container-event" key={`container-event-${i}`}>
                                         <div className="event-img" key={`event-img-${i}`}><img className="event-image" src={`/${event.image}`}></img></div>
                                         <div className="event-details" key={`event-details-${i}`}>
@@ -102,9 +102,14 @@ function HomeCoordinator() {
                                         <div className="event-datetime" key={`event-datetime-${i}`}>
                                             <div key={`date-${i}`}>{formatDate(event.fecha_ini)}</div>
                                             <div key={`time-${i}`}>{event.hora_empezar}h</div>
+                                            <div>
+                                             <Link to={`/solicitudes/evento/${btoa(event.id)}`} className="box-link" key={`link-${i}`}>
+                                                <div className="requests-pending" key={`requests-pending-${i}`}>{event.requests.pendings.length}</div>
+                                            </Link>
+                                            </div>
                                         </div>
                                     </div>
-                                </Link>
+                                //{/* </Link> */}
                                 : ""
                             )})
                         :""}
