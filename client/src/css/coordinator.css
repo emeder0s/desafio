@@ -122,3 +122,9 @@ input.seach-input {
     color: black;
    width: 300px;
 }
+
+.logout-icon {
+    height: 23px;
+    width: 23px;
+    color: #404040;
+}
