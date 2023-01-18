@@ -1,7 +1,8 @@
 import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import { HiOutlineLocationMarker } from "react-icons/hi";
-import { CiSearch } from "react-icons/ci";
+import { AiOutlineDown } from "react-icons/ai";
+import { CiSearch, CiCalendar } from "react-icons/ci";
 import ChartRequest from "./ChartRequest";
 import logo from '../img/logo.png'
 import { MenuModalCoordinator } from './MenuModalCoordinator'
@@ -81,7 +82,7 @@ function HomeCoordinator() {
                         </div>
                     </div>
                     <div>
-                    <div className="new-event-container"><a className="new-event" href=""></a></div>
+                    <div className="new-event-container">+<a className="new-event" href="">Filtrar por eventos publicados</a><AiOutlineDown color={"#4b4b4b"}/><CiCalendar color={"#4b4b4b"} className="icon-calendar"/></div>
                     <p className='title'>Eventos publicados</p>
                         {events ?
                         events.map((event, i) => {

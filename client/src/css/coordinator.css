@@ -127,3 +127,10 @@ input.seach-input {
     height: 23px;
     width: 23px;
 }
+
+.icon-calendar{
+    height: 26px;
+    width: 26px;
+    margin-top: -5px;
+    margin-left: 5px;
+}
