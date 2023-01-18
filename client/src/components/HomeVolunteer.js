@@ -8,6 +8,8 @@ import { Footer } from './layout/Footer'
 import { useNavigate } from "react-router-dom";
 import { MenuAllEvents } from './MenuAllEvents'
 import { MenuModal } from './MenuModal'
+import { MenuFormations } from './MenuFormations'
+import { MenuEventsRecomended } from './MenuEventsRecomended'
 
 
 
@@ -76,7 +78,7 @@ export const HomeVolunteer = () => {
             <motion.div className='slider-container'>
                 <div className='menuFormation'>
                     <p className='pTitleEvent'>Eventos Recomendados</p>
-                    <p className='pPesEvent'><MenuAllEvents /></p>
+                    <p className='pPesEvent'><MenuEventsRecomended /></p>
                 </div>
                 <motion.div className='slider' drag='x'
                     dragConstraints={{ right: 0, left: -880 }} >
@@ -147,7 +149,7 @@ export const HomeVolunteer = () => {
                 <div className='menuFormation'>
 
                     <p className='pForm'>Formaciones</p>
-                    <p className='pPesEvent'><MenuAllEvents /></p>
+                    <p className='pPesEvent'><MenuFormations /></p>
 
                 </div>
             </div>
