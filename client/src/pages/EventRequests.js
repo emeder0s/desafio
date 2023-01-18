@@ -18,6 +18,8 @@ function EventRequests() {
     const [totalConfirmed,setTotalConfirmed] = useState(0);
     var [search,setSearch] = useState();
 
+    
+
     const getRequests = () => {
         fetch(`/get-requests-by-event/${id}`)
             .then((res) => res.json(res))

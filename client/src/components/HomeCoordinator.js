@@ -19,6 +19,7 @@ function HomeCoordinator() {
         fetch(`/get-coordinator-events`)
             .then((res) => res.json(res))
             .then(res => {
+                console.log(res.results)
                 setEvents(res.results);
                 setTotalPendings(res.totalPending);
                 settotalConfirmed(res.totalAccepted);
@@ -54,6 +55,11 @@ function HomeCoordinator() {
         getCoordinator();
         getEvents();
     }, [])
+
+    const formatDate = (d) => {
+        var date = d.split("-");
+        return `${date[2]}/${date[1]}/${date[0]}`;
+    }
 
     return (
         <div className="page-content-coord">
@@ -94,8 +100,8 @@ function HomeCoordinator() {
                                             </div>
                                         </div>
                                         <div className="event-datetime" key={`event-datetime-${i}`}>
-                                            <div key={`date-${i}`}>20/03/23</div>
-                                            <div key={`time-${i}`}>18h</div>
+                                            <div key={`date-${i}`}>{formatDate(event.fecha_ini)}</div>
+                                            <div key={`time-${i}`}>{event.hora_empezar}h</div>
                                         </div>
                                     </div>
                                 </Link>
