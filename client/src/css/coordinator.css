@@ -81,6 +81,7 @@ input.seach-input {
     flex-direction: column;
     align-content: flex-end;
     align-items: flex-end;
+    width: 33%;
 }
 
 .event-title{
@@ -98,6 +99,12 @@ input.seach-input {
 
 .new-event {
     color: #4b4b4b;
-    font-size: 14px;
+    font-size: 13px;
     font-weight: 500;
+}
+
+.react-icon{
+    width: 25px;
+    height: 25px;
+    margin-bottom: 8px;
 }

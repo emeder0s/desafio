@@ -130,10 +130,12 @@ const user = {
   },
 
   /**
-   * Actualiza los datos de un usuario 
-   * @param {*} req la petición
-   * @param {*} res la respuesta a la petición
+   * Devuelve el usuario del id dado
+   * @param {*} id 
+   * @param {*} con 
+   * @returns 
    */
+
   // edit: async (req, res) => {
   //   try {
   //     let id = session.get_id_from_cookie(req);
@@ -218,6 +220,13 @@ const user = {
   //     await connection.close(con);
   //   }
   // },
+=======
+  returnUser: async (id,con) => {
+    const userM = await userModel.create(con);
+    const user = await userM.findOne({ where: { id } });
+    return user.dataValues; 
+  }
+
 }
 
 module.exports = user;
