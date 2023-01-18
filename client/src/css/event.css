@@ -111,15 +111,15 @@
 .pCarruselEvent {
     font-weight: bold;
     font-size: 18px;
-    color: white;
-    font-size: 16px;
+    color: #4B4B4B;
+    font-size: 15px;
     margin-bottom: 2px;
 }
 
 .pCarruselLocal {
-  
+    text-align: left;
     font-size: 14px;
-    color: white;
+    color: #4B4B4B;
 }
 
 .pCarruselTime {
@@ -171,6 +171,7 @@
     background-color: #F9F9F9;
     margin-bottom: 30px;
     padding-bottom: 30px;
+    border-radius: 4px;
 }
 
 
@@ -201,3 +202,67 @@
     font-weight: bold;
 }
 
+
+.divEventAllImage{
+    display: flex;
+    flex-direction: row;
+}
+
+.imgEventAllDiv{
+    width: 70px;
+    height: 70px;
+    border-radius: 100px;   
+}
+
+img.imgEventAllDiv{
+   
+    border-radius: 100px;
+    object-fit: cover;
+    margin-top: 5px;
+}
+
+.divEventAllDiv{
+    margin-left: 10px;
+}
+
+
+.pTimeAll{
+    color:#4B4B4B;
+    font-size: 10px;
+}
+
+
+.divEventVisu{
+    width: 410px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.infoEventP{
+    color: #242424;
+    font-size: 12px;
+    font-weight: bold;
+}
+
+.divPuntosEventos{
+    display: flex;
+    flex-direction: row;
+    margin-left: 150px;
+   align-items: flex-start;
+}
+
+.iconPunto1{
+    color:#6093F1;
+    
+    
+}
+
+.iconPunto2{
+    color:#F5626B;
+}
+
+.pConfirmens{
+   margin-top: 20px;
+}

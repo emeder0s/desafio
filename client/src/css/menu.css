@@ -282,8 +282,15 @@ flex-direction: row;
 .butStartEvent{
   margin-bottom: 5px;
   margin-top: 10px;
-  background-color: #0A84FF;
+  background-color: #F5F5F5;
   border: none;
-  border-radius: 48px;
+  
   color: white;
 }
+
+.iconPuntos{
+  display: flex;
+  justify-content: end;
+  
+}
+

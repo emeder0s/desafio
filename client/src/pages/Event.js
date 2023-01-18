@@ -4,8 +4,12 @@ import logo from '../img/logo.png'
 import logoComunidad from '../img/logoComunidad.png'
 import { Footer } from "../components/layout/Footer";
 import { MenuModal } from "../components/MenuModal";
+import { MenuModal2 } from "../components/MenuModal2";
 import { ButtonBack } from "../components/ButtonBack"
 import { MenuConfirmEvent } from "../components/MenuConfirmEvent";
+
+
+
 
 
 
@@ -47,6 +51,12 @@ function Event() {
 
     }
 
+//para modifica formato fecha
+    // const formatDate = (d) => {
+    //     var date = d.split("-");
+    //     return `${date[2]}/${date[1]}/${date[0]}`;
+    // }
+
     
     return (
         <div className="page-content">
@@ -63,6 +73,9 @@ function Event() {
 
                 <div className="boxEventDates">
                     <img src={`/${event.image}`} className="imgEventAll2" alt="" />
+                    <div className="iconPuntos">
+                    <p><MenuModal2/></p>
+                    </div>
                     <div className="pfichaDoc">
 
                         <p className='pCarruselEvent2'>{event.titulo} </p>
