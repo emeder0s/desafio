@@ -4,7 +4,9 @@ import { useState, useEffect } from 'react'
 
 
 export const MenuConfirmEvent = () => {
-    const { id } = useParams();
+    var { id } = useParams();
+    var id = atob(id);
+    console.log(id);
     const [local, setLocal] = useState();
 
     const enrollTo = async () => {

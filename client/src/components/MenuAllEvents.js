@@ -45,7 +45,7 @@ export const MenuAllEvents = () => {
 
                         <div key={i} className="boxEventAll2">
 
-                            <button onClick={() => goToPag(`/evento/${everyEvent.id}`)} className="butStartEvent">
+                            <button onClick={() => goToPag(`/evento/${btoa(everyEvent.id)}`)} className="butStartEvent">
                                 <div className='divEventAllImage'>
                                     <img src={everyEvent.image} className="imgEventAllDiv" alt="" />
                                     <div className='divEventAllDiv'>
