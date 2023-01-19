@@ -1,0 +1,90 @@
+.imageCarrusel {
+    
+    min-width: 190px;
+    padding: 10px;
+    border-radius: 2px;
+}
+
+.imageCarrusel img {
+    height: 100%;
+    width: 100%;
+    pointer-events: none;
+}
+
+.boxEventAll .imgEventAll{
+    height: 120px;
+    border-radius: 2px;
+}
+
+.slider {
+    padding-top: 5px;
+    padding-bottom: 5px;
+    display: flex;
+    cursor: grab;
+    background-color: #f3f0f0f8;
+    width: 1300px;
+   height: 240px;
+   border-radius: 4px;
+}
+
+.slider-container {
+    margin: 0 auto;
+    overflow-x: hidden;
+   
+}
+
+
+.divLoginCar {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    margin-top: 40px;
+    align-items: center;
+    
+}
+
+.imgLogin2 {
+    margin: 0 auto;
+    width: 160px;
+    height: 38.19;
+    margin-bottom: 10px;
+    margin-top: 5px;
+    margin-left: 90px;
+    margin-right: 30px;
+}
+
+.imgLogin3{
+   
+    width: 160px;
+    height: 38.19;
+    margin-bottom: 5px;
+    margin-top: 5px;
+    border-radius: 4px;
+    
+}
+
+.imgLogin4{
+    padding-right: 10px;
+}
+
+
+.pTitleEvent {
+    margin-top: 38px;
+    font-size: 19px;
+    font-weight: bold;
+    color: black;
+    width: 300px;
+}
+
+.pEvent {
+    font-size: 24px;
+    font-weight: bold;
+    font-size: 19px;
+}
+
+.pForm{
+    font-size: 24px;
+    font-weight: bold;
+    margin-top: 38px;
+    font-size: 19px;
+}
