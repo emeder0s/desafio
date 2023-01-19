@@ -28,7 +28,8 @@ export const MenuConfirmEvent = () => {
         await fetch("/new-request", data)
             .then((res) => res.json())
             .then((res) => {
-                console.log(res);
+                console.log(res)
+                document.getElementById("closeModal").click()
             })
     }
 
@@ -50,6 +51,7 @@ export const MenuConfirmEvent = () => {
 
     }, [])
 
+    
 
 
 
@@ -68,8 +70,11 @@ export const MenuConfirmEvent = () => {
                     <div className='divModalAsistirEvento'>
                         <p className='pAsistir'>Asistir al evento</p>
                         <p className='pSeguro'>¿Estás seguro de que deseas asistir a este evento recomendado?</p>
-                        <button onClick={() => { enrollTo() }} className="butAsis2">Claro, me encantaría</button>
-                        {/* <p className='pGracias'>No, gracias</p> */}
+                        <div className='blockDiv'>
+                        <button onClick={() => { enrollTo() }} className="butAsis2" >Claro, me encantaría</button>
+                        <a href="#close" id='closeModal' title="Close" class="close" className='pGraciasBut'></a>
+                        {/* <a href="#close"></a> */}
+                        </div>
                         <a href="#close" title="Close" class="close" className='pGracias'>No gracias</a>
                     </div>
 
