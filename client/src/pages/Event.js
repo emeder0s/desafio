@@ -9,16 +9,11 @@ import { ButtonBack } from "../components/ButtonBack"
 import { MenuConfirmEvent } from "../components/MenuConfirmEvent";
 import { AiFillHeart,AiOutlineHeart } from "react-icons/ai";
 
-
-
-
-
 function Event() {
     var { id } = useParams();
     id = atob(id);
     const [event, setEvent] = useState();
     const [coordinator, setCoordinator] = useState();
-
 
     //Traemos los datos del evento en cuestión
     const getEvent = () => {
