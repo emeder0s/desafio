@@ -289,8 +289,9 @@ flex-direction: row;
 }
 
 .iconPuntos{
+  width: 100%;
   display: flex;
-  justify-content: end;
+  justify-content: center;
   z-index: 100;
   position: relative;
   height: 53px;

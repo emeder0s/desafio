@@ -4,6 +4,7 @@ import bocadillo from '../img/bocadillo.png';
 import exportar from '../img/exportar.png';
 import alerta from '../img/alerta.png';
 import { BiDotsVerticalRounded } from "react-icons/bi";
+
 import '../css/dots.css'
 
 
@@ -14,7 +15,7 @@ export const MenuModal2 = () => {
         <div>
 
     
-            <div>
+                <div>
                     <a href="#openModal7" className='aModal7'> <BiDotsVerticalRounded className="dots" color="white"/></a>
 
                 </div>
