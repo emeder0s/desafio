@@ -123,15 +123,12 @@ export const HomeVolunteer = () => {
                 <p className='iconPunto2'><BsDot size={30} /></p>
                 <p className='pConfirmens'>Pendientes</p>
             </div>
-            {localStorage && <div className='divEventVisu'>
-             
+            {eventosLocal && <div className='divEventVisu'>
                 <p className='infoEventP'>| {eventosLocal.fecha_ini}</p>
-               
                 <p className='iconPunto'><BsDot size={30}  /></p>
                 <p className='infoEventP'>{eventosLocal.titulo}</p>
                 <p className='iconPunto'><BsDot size={30} /></p>
                 <p className='infoEventP'>{eventosLocal.hora_empezar}h</p>
-
             </div>}
 
 
