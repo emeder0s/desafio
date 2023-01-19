@@ -26,7 +26,7 @@ export const MenuFormations = () => {
 
     return (
         <div>
-            <a href="#openModal3" className='aModal2'>Ver todos</a>
+            <p class="seeAll"><a href="#openModal3" className='aModal2'>Ver todos</a></p>
 
             <div id="openModal3" className="modalDialog">
                 <div className='modalEventsTotal'>

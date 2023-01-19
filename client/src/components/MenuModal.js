@@ -17,7 +17,7 @@ export const MenuModal = (props) => {
     }
 
     return (
-        <div>
+        <div style={{display: "flex"}}>
             {props.pendings ? <img src={bellAlert} className='imgMenuModal2' /> : <img src={bell} className='imgMenuModal2' />}
             <a href="#openModal" className='aModal'> <img src={logMenu} className='imgMenuModal2' /></a>
             <div id="openModal" class="modalDialog">
