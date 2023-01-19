@@ -87,7 +87,8 @@
 .pPesEvent {
   margin: 0 auto;
   margin-bottom: 2px;
-  margin-top: 45px;
+  margin-top: 41px;
+  width: 110px;
   
 }
 
@@ -160,7 +161,7 @@
   color: #FFFFFF;
   line-height: 25px;
   position: absolute;
-  right: -12px;
+  right: 11px;
   text-align: center;
   top: -10px;
   width: 24px;
@@ -309,4 +310,10 @@ flex-direction: row;
 
 .divLoginCarPrin .imgLogin3{
   padding-right: 40px;
+}
+
+.seeAll {
+  text-align: right;
+  width: 249px;
+  margin-top: 0px;
 }
