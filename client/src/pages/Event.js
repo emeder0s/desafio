@@ -14,7 +14,8 @@ import { MenuConfirmEvent } from "../components/MenuConfirmEvent";
 
 
 function Event() {
-    const { id } = useParams();
+    var { id } = useParams();
+    id = atob(id);
     const [event, setEvent] = useState();
     const [coordinator, setCoordinator] = useState();
 

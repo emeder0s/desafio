@@ -92,7 +92,7 @@ export const HomeVolunteer = () => {
                         <motion.div className='imageCarrusel'>
 
                             <div key={i} className="boxEventAll">
-                                <button onClick={() => goToPag(`/evento/${everyEvent.id}`)} className="butStart">
+                                <button onClick={() => goToPag(`/evento/${btoa(everyEvent.id)}`)} className="butStart">
                                     <img src={`/${everyEvent.image}`} className="imgEventAll" alt="" />
                                 </button>
                                 <div className='divEventWhite'>
@@ -147,7 +147,7 @@ export const HomeVolunteer = () => {
                         <motion.div className='imageCarrusel'>
 
                             <div key={i} className="boxEventAll">
-                                <button onClick={() => goToPag(`/evento/${everyEvent.id}`)} className="butStart">
+                                <button onClick={() => goToPag(`/evento/${btoa(everyEvent.id)}`)} className="butStart">
                                     <img src={`/${everyEvent.image}`} className="imgEventAll" alt="" />
                                 </button>
                                 <div className='divEventWhite'>
