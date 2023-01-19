@@ -73,9 +73,13 @@ function Event() {
             {event &&
 
                 <div className="boxEventDates">
-                    <img src={`/${event.image}`} className="imgEventAll2" alt="" />
-                    <div className="iconPuntos">
-                    <p><MenuModal2/></p>
+                    <div className="imgEventAll2 menu-container">
+                        <img src={`/${event.image}`} style={{position: "absolute"}} className="imgEventAll2" alt="" />
+                        <div className="iconPuntos">
+                        <p><MenuModal2/></p>
+                        <div/>
+                    </div>
+                    
                     </div>
                     <div className="pfichaDoc">
 

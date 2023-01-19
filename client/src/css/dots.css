@@ -1,0 +1,12 @@
+.dots{
+    width: 30px;
+    height: 30px;
+    background: #9d21289e;
+    border-radius: 10px;
+    margin-right: 8px;
+}
+
+.menu-container {
+    display: flex;
+    flex-direction: column-reverse;
+}
