@@ -295,3 +295,15 @@ flex-direction: row;
   
 }
 
+.divLoginCarPrin{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  margin-top: 40px;
+  align-items: center;
+  margin-left: 120px;
+}
+
+.divLoginCarPrin .imgLogin3{
+  padding-right: 40px;
+}

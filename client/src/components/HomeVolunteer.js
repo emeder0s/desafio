@@ -74,7 +74,7 @@ export const HomeVolunteer = () => {
     return (
         <div>
 
-            <div className='divLoginCar'>
+            <div className='divLoginCarPrin'>
                 <img src={logo} className='imgLogin3' alt="Logo Cruz Roja" />
 
                 <div><MenuModal /></div>
